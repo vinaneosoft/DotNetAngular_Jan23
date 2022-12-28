@@ -81,6 +81,27 @@ console.log(newar);
 //declare array having book objects
 // forEach, find book having book id 3, filter all books of "Java" , get sum of all books' price 
 
+var bookar = [
+    { id: 5, name: "Basics of Java", price: 200 },
+     { id: 4, name: "Advanced Java", price: 320 },
+     { id: 6, name: "Python learning", price: 420 },
+     { id: 3, name: "C# and DotNet", price: 320 },
+     { id: 2, name: "Deep in C#", price: 350 },
+  ];
+  
+  bookar.forEach(bk=>console.log(bk.id+" "+bk.name+" "+bk.price));
+  let bkObject=bookar.find(bk=>bk.id==3);
+console.log(JSON.stringify(bkObject));
+
+let arr=bookar.filter(bk=>bk.name.toLowerCase().includes("java"));
+arr.forEach(bk=>console.log(bk.id+" "+bk.name+" "+bk.price));
+let pricesum=bookar.reduce((acc,book)=>acc+book.price, 0);
+
+console.log("Sum:"+pricesum);
+
+let sump=bookar.map(bk=>bk.price).reduce((acc,price)=>acc+price);
+console.log(sump);
+
 let empObj={
     empId:123,
     empName:"Meenal",
