@@ -1,0 +1,2 @@
+//declare array having book objects
+// forEach, find book having book id 3, filter all books of "Java" , get sum of all books' price 
