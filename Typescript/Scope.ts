@@ -65,15 +65,19 @@ console.log(account1.bal);
 account2.actype="Salary";
 console.log(account2.getDetails());
 
+console.log(account1.acno);
+account1.acno=678990;
 
 
 class Student{
-    constructor(private studId=0,private studName="abc",private studStandard="1st"){
+    constructor( private studId=0, public studName="abc",private studStandard="1st"){
         
     }
     getDetails(){
         return "id:"+this.studId; // complete it
     }
+
+    // need get set properties
 }
 
 let student=new Student();
@@ -81,3 +85,4 @@ console.log(JSON.stringify(student));
 
 let student2=new Student(23,"Pooja","6th");
 console.log(JSON.stringify(student2));
+//console.log(student2.studId);

@@ -54,8 +54,12 @@ class Student {
         this.studName = studName;
         this.studStandard = studStandard;
     }
+    getDetails() {
+        return "id:" + this.studId; // complete it
+    }
 }
 let student = new Student();
 console.log(JSON.stringify(student));
 let student2 = new Student(23, "Pooja", "6th");
 console.log(JSON.stringify(student2));
+//console.log(student2.studId);
