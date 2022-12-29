@@ -43,8 +43,8 @@ protected : visible in hierarchy
         return this.accNum;
     }
 
-    set acno(accNum:number){
-        this.accNum=accNum;
+    set acno(num:number){
+        this.accNum=num;
     }
     get bal(){
         return this.balance;
@@ -55,9 +55,7 @@ protected : visible in hierarchy
         this.accType=accType;
     }
     // add get
-
     // get set for custid
-
 }
 let account1=new BankAccount(123456,1111,"Savings",67000);
 let account2=new BankAccount(654321,2222,"Savings",68000);
