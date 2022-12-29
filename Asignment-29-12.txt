@@ -1,0 +1,8 @@
+Create Employee object with instance variables id, name, salary and further what u want
+declare constructor and instance methods needed
+
+Employee id should be auto incrmented  
+
+new Employee(pass all values except id)   NS-1
+							NS-2, NS-3 NS-4
+
