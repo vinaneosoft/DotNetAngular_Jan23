@@ -8,7 +8,6 @@ class Employee{
   getMonthlySalary():number{
     return this.empSalary;
   }
-
   getEmpDetails():string{
     return `Id: ${this.empId}, Name: ${this.empName}, Salary: ${this.empSalary}, Department Id: ${this.departmentId}`
   }
@@ -22,7 +21,6 @@ class Manager extends Employee{
     getMgrDetails():string{
         return `${this.getEmpDetails()}, Extra Pay: ${this.extraPay}, Which department Manager: ${this.managingDepartId}`
     }
-
 }
 
 let mgr=new Manager();
