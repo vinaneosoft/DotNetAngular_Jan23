@@ -45,5 +45,5 @@ var sparrow = new Sparrow();
 var bat = new Bat();
 checkSleepType(bat);
 function checkSleepType(bird) {
-    bird.sleep(); // polymorhipm
+    bird.sleep(); // polymorhipm // override
 }

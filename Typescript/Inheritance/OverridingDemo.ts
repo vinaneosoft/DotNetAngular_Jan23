@@ -1,9 +1,5 @@
 
-
-class Person{
-
-}
-class Employee extends Person{
+class Employee{
     empId:number;
     empName:string;
     empSalary:number;
