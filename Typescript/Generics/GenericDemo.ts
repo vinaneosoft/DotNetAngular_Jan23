@@ -5,6 +5,7 @@ arr1.push(56);
 let arr2=new Array();
 arr2.push(67);
 arr2.push("hi");
+
 console.log(arr2);
 let arr3=new Array<Number>();
 arr3.push(78.9);
@@ -17,7 +18,7 @@ console.log(arr3);
 let arr4=new Array<String>();
 arr4.push("hi");
 arr4.push("hi");
-arr4.push("hello");
+arr4.push("hello","welcome");
 //arr4.push(false);
 arr4.push(new String("hello"));
 console.log(arr4);
@@ -31,7 +32,7 @@ class Book{
 let book1=new Book(123,"Java Learning",800);
 let book2=new Book(124,"Java Learning",800);
 let book3=new Book(125,"Java Learning",800);
-let book4=new Book(126,"Java Learning",800);
+let book4=new Book(123,"Java Learning",800);
 
 let bookArray=new Array<Book>();
 bookArray.push(book1)
@@ -42,3 +43,18 @@ bookArray.push(book4)
 
 bookArray.forEach(book=>console.log(book));
 
+
+
+let set1=new Set<Number>();
+set1.add(78.9);
+set1.add(78);
+set1.add(78.93);
+set1.add(78);
+console.log(set1);
+
+let bookSet=new Set<Book>();
+bookSet.add(book1)
+bookSet.add(book2)
+bookSet.add(book3)
+bookSet.add(book4)
+bookSet.forEach(book=>console.log(book));
