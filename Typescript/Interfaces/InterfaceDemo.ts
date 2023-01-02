@@ -8,7 +8,7 @@ interface CollectInteface{
 }
 
 class Stack implements CollectInteface{
-    size=10;
+    size=56;
     ar=new Array(this.size);
     top=-1;
     add(ele: number): void {
@@ -31,7 +31,6 @@ class Stack implements CollectInteface{
             console.log(this.ar[i]);
         }
     }
-
 }
 
 
