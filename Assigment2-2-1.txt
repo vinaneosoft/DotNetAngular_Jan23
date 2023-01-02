@@ -1,0 +1,4 @@
+Create a map of word dicionary. Add some words and their meaning
+use set, get, delete, keys, values, foreach methods on above map
+
+use switch case for above operations
