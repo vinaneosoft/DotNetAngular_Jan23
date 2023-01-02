@@ -4,10 +4,16 @@ var Stack = /** @class */ (function () {
         this.top = -1;
     }
     Stack.prototype.add = function (ele) {
+        if (this.top == this.ar.length - 1) {
+            throw new Error("Stack Full");
+        }
         this.top++;
         this.ar[this.top] = ele;
     };
     Stack.prototype.remove = function () {
+        if (this.top == -1) {
+            throw new Error("Stack Empty");
+        }
         var ele = this.ar[this.top];
         this.top--;
         return ele;
@@ -23,13 +29,13 @@ var Queue = /** @class */ (function () {
     function Queue() {
     }
     Queue.prototype.display = function () {
-        throw new Error("Method not implemented.");
+        console.log(("queue display method called"));
     };
     Queue.prototype.add = function (ele) {
-        // lgic of addding the element in queue
+        console.log(("queue add method called"));
     };
     Queue.prototype.remove = function () {
-        // logic of remving element from queue  and return removed element
+        console.log(("queue removed method called"));
         return 0;
     };
     return Queue;

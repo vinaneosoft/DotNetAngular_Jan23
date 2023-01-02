@@ -1,12 +1,15 @@
 interface CollectInteface{
-    add(ele:number):void;
+    ar:number[];  // varibale signature
+    size?:number;   // optional variable
+    add(ele:number):void;  // method signature
     remove():number;
     display():void;
+    test?():void;  // optional method
 }
 
 class Stack implements CollectInteface{
-   
-    ar=new Array(10);
+    size=10;
+    ar=new Array(this.size);
     top=-1;
     add(ele: number): void {
         if(this.top==this.ar.length-1){
@@ -33,14 +36,16 @@ class Stack implements CollectInteface{
 
 
 class Queue implements CollectInteface{
+    ar=new Array(10);
     display(): void {
-        
+        console.log(("queue display method called"));
     }
     add(ele: number): void {
-        // lgic of addding the element in queue
+      console.log(("queue add method called"));
+      
     }
     remove(): number {
-       // logic of remving element from queue  and return removed element
+        console.log(("queue removed method called"));
        return 0;
     }
     
