@@ -26,6 +26,9 @@ class Book {
         this.name = name;
         this.price = price;
     }
+    get bid() {
+        return this.id;
+    }
 }
 let book1 = new Book(123, "Java Learning", 800);
 let book2 = new Book(124, "Java Learning", 800);
@@ -44,9 +47,31 @@ set1.add(78);
 set1.add(78.93);
 set1.add(78);
 console.log(set1);
+set1.delete(78);
+console.log(set1);
 let bookSet = new Set();
 bookSet.add(book1);
 bookSet.add(book2);
 bookSet.add(book3);
 bookSet.add(book4);
 bookSet.forEach(book => console.log(book));
+bookSet.forEach(book => {
+    if (book.bid == 123)
+        bookSet.delete(book);
+});
+console.log("After delete.....");
+bookSet.forEach(book => console.log(book));
+let map1 = new Map();
+map1.set(456, 89000);
+map1.set(457, 99000);
+map1.set(459, 129000);
+map1.set(456, 129000);
+map1.set(450, 49000);
+// key duplicate not allowed, value allowed
+console.log(map1);
+console.log(map1.get(450));
+map1.delete(450);
+console.log(map1);
+map1.forEach((val, key) => { console.log(val), console.log(key); });
+console.log(map1.keys());
+console.log(map1.values());
