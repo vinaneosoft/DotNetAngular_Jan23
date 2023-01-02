@@ -1,0 +1,5 @@
+Declare interface EmployeeInterface providing method signature and variable signature to 
+Trainer class and Developer class. these classes should implement interface and implement methods.
+
+showDetails : method signature, id name salary : variables signature
+
