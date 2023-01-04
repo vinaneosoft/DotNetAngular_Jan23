@@ -54,5 +54,17 @@
 <hr>
 <section>
     <label>Enter Department Name if change:</label>
-    <input type="text" [(ngModel)]="deparment.deptName" (keyup)="display()">
+    <input type="text" [(ngModel)]="deparment.deptName" (keyup)="display()" #nameNode>
+    <button (click)="pass(nameNode.value)" #btnNode>CLICK</button>
+</section>
+<section>
+    <label>Enter Dept Id:</label>
+    <input type="text" #idNode>
+    <label>Enter Dept Name:</label>
+    <input type="text" #dnameNode>
+    <label>Enter Dept Yearly Budget:</label>
+    <input type="number" #budgetNode>
+    <label>Enter Dept Establishment year:</label>
+    <input type="number" #yearNode>
+    <button (click)="addDeparment(idNode.value,dnameNode.value,budgetNode.value,yearNode.value)">ADD DEPARMENT</button>
 </section>
