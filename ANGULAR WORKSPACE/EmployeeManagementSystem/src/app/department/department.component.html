@@ -20,10 +20,26 @@
 <table border="3">
     <tbody>
         <tr *ngFor="let depart of deptArray">
-            <td>{{depart.deptId}}</td>
-            <td>{{depart.deptName}}</td>
-            <td>{{depart.deptBudget}}</td>
-            <td>{{depart.deptEstYear}}</td>
+            <span *ngIf="depart.deptEstYear==2000">
+                <td>{{depart.deptId}}</td>
+                <td>{{depart.deptName}}</td>
+                <td>{{depart.deptBudget}}</td>
+                <td>{{depart.deptEstYear}}</td>
+            </span>
+        </tr>
+    </tbody>
+</table>
+
+<table border="3">
+    <tbody>
+        <tr *ngFor="let depart of deptArray">
+            <span  *ngIf="depart.deptEstYear==2000; then thenpart"></span>
+            <ng-template #thenpart>
+                <td>{{depart.deptId}}</td>
+                <td>{{depart.deptName}}</td>
+                <td>{{depart.deptBudget}}</td>
+                <td>{{depart.deptEstYear}}</td>
+            </ng-template>
         </tr>
     </tbody>
 </table>
@@ -79,4 +95,14 @@
         <option value="Kopar">KOPAR</option>
         <option value="Turbhe">TURBHE</option>
     </select>
+</section>
+<section>
+    <input type="number" [(ngModel)]="age">
+    <span *ngIf="age>=18; then thenfield; else elsefield">OK</span>
+    <ng-template #thenfield>
+        <p>You are allowed for voting</p>
+    </ng-template>
+    <ng-template #elsefield>
+        <p>You are NOT allowed for voting</p>
+    </ng-template>
 </section>

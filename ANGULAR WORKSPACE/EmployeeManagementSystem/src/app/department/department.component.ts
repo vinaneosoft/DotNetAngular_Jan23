@@ -8,6 +8,7 @@ import { Department } from '../classes/department';
 })
 export class DepartmentComponent {
 title="Employee Management System";
+age=0;
  deptArray=new Array<Department>();
  deparment=new Department("LD","Learning and Development",100000,2015, "https://picsum.photos/id/560/200/300");
  constructor(){
