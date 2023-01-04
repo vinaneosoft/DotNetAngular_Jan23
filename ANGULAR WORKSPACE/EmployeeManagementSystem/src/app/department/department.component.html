@@ -1,0 +1,27 @@
+<ol>
+    <li><b>ID: </b>{{deparment.deptId}}</li>
+    <li>{{deparment.deptName}}</li>
+    <li>{{deparment.deptBudget}}</li>
+    <li>{{deparment.deptEstYear}}</li>
+</ol>
+<table border="3">
+    <tbody>
+        <tr>
+            <td>{{deparment.deptId}}</td>
+            <td>{{deparment.deptName}}</td>
+            <td>{{deparment.deptBudget}}</td>
+            <td>{{deparment.deptEstYear}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<table border="3">
+    <tbody>
+        <tr *ngFor="let depart of deptArray">
+            <td>{{depart.deptId}}</td>
+            <td>{{depart.deptName}}</td>
+            <td>{{depart.deptBudget}}</td>
+            <td>{{depart.deptEstYear}}</td>
+        </tr>
+    </tbody>
+</table>
