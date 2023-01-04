@@ -25,3 +25,27 @@
         </tr>
     </tbody>
 </table>
+<section class="myDepartment">
+    <figure>
+        <h2>Id: {{deparment.deptId}}</h2>
+        <img [src]="deparment.deptImage">
+        <figcaption><h3>{{deparment.deptName}}</h3></figcaption>
+    </figure>
+    <div>
+        <p>This is depatment is established in year <b>{{deparment.deptEstYear}}</b></p>
+        <p>Year budget of depatment is <b>{{deparment.deptBudget}}</b></p>
+    </div>
+</section>
+<article class="flexContainer">
+<section class="myDepartment" *ngFor="let depart of deptArray">
+    <figure>
+        <h2>Id: {{depart.deptId}}</h2>
+        <img [src]="depart.deptImage">
+        <figcaption>{{depart.deptName}}</figcaption>
+    </figure>
+    <div>
+        <p>This is depatment is established in year <b>{{depart.deptEstYear}}</b></p>
+        <p>Year budget of depatment is <b>{{depart.deptBudget}}</b></p>
+    </div>
+</section>
+</article>
