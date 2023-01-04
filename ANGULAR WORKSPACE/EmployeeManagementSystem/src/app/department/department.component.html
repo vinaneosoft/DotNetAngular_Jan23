@@ -1,3 +1,5 @@
+{{title}}
+<input type="text" [(ngModel)]="title"> 
 <ol>
     <li><b>ID: </b>{{deparment.deptId}}</li>
     <li>{{deparment.deptName}}</li>
@@ -49,3 +51,8 @@
     </div>
 </section>
 </article>
+<hr>
+<section>
+    <label>Enter Department Name if change:</label>
+    <input type="text" [(ngModel)]="deparment.deptName" (keyup)="display()">
+</section>
