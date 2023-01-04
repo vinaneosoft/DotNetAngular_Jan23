@@ -54,8 +54,9 @@
 <hr>
 <section>
     <label>Enter Department Name if change:</label>
-    <input type="text" [(ngModel)]="deparment.deptName" (keyup)="display()" #nameNode>
+    <input type="text" [(ngModel)]="deparment.deptName" (keyup)="display()" (focus)="display()" #nameNode>
     <button (click)="pass(nameNode.value)" #btnNode>CLICK</button>
+    <input type="radio" (change)="test()"> 
 </section>
 <section>
     <label>Enter Dept Id:</label>
@@ -67,4 +68,15 @@
     <label>Enter Dept Establishment year:</label>
     <input type="number" #yearNode>
     <button (click)="addDeparment(idNode.value,dnameNode.value,budgetNode.value,yearNode.value)">ADD DEPARMENT</button>
+</section>
+<section>
+    <table border="3">
+        <tr><td *ngFor="let st of stationArray">{{st}}</td></tr>
+    </table>
+    <select [(ngModel)]="station" (change)="addStation()">
+        <option value="Rabale">RABALE</option>
+        <option value="Ghansoli">GHANSOLI</option>
+        <option value="Kopar">KOPAR</option>
+        <option value="Turbhe">TURBHE</option>
+    </select>
 </section>

@@ -19,7 +19,8 @@ title="Employee Management System";
  setTimeout(()=>{this.deparment.deptName="Design Department"}, 6000);
  }
  display():void{
-      console.log(this.deparment);
+  console.log("Field focused");
+  console.log(this.deparment);
  }
 
  pass(node:any){
@@ -29,5 +30,13 @@ title="Employee Management System";
   console.log(id+" "+name+" "+budget+" "+year);
   let newDept=new Department(id,name, parseFloat(budget),parseInt(year),"");
   this.deptArray.push(newDept);
+ }
+ test(){
+  console.log("Event generated");
+ }
+ station=""
+ stationArray=['Thane','Airoli']
+ addStation():void{
+  this.stationArray.push(this.station);
  }
 }
