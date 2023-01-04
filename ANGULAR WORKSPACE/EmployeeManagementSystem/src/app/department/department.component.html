@@ -1,12 +1,12 @@
 {{title}}
-<input type="text" [(ngModel)]="title"> 
-<ol>
+<input type="text" [(ngModel)]="title" style="border: 2px solid pink; background-color: aqua; padding: 20px;"> 
+<ol [ngStyle]="{borderColor:bcolor, borderWidth:'2px', borderStyle:bstyle, 'background-color':'yellow'}">
     <li><b>ID: </b>{{deparment.deptId}}</li>
     <li>{{deparment.deptName}}</li>
     <li>{{deparment.deptBudget}}</li>
     <li>{{deparment.deptEstYear}}</li>
 </ol>
-<table border="3">
+<table border="3" [ngStyle]="myStyle">
     <tbody>
         <tr>
             <td>{{deparment.deptId}}</td>
@@ -17,7 +17,7 @@
     </tbody>
 </table>
 <hr>
-<table border="3">
+<table border="3" [ngStyle]="myStyle">
     <tbody>
         <tr *ngFor="let depart of deptArray">
             <span *ngIf="depart.deptEstYear==2000">

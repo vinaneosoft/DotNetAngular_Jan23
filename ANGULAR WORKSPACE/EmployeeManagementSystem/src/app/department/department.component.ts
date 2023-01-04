@@ -40,4 +40,12 @@ age=0;
  addStation():void{
   this.stationArray.push(this.station);
  }
+ bstyle="double";
+ bcolor="green";
+ myStyle={
+  borderColor:'green',
+  borderStyle:'double',
+  borderWidth:'5px',
+  backgroundColor:'pink'
+ }
 }
