@@ -30,7 +30,7 @@
     </tbody>
 </table>
 
-<table border="3">
+<table border="3" [ngStyle]="obj" (mouseover)="applyStyle()"> 
     <tbody>
         <tr *ngFor="let depart of deptArray">
             <span  *ngIf="depart.deptEstYear==2000; then thenpart"></span>

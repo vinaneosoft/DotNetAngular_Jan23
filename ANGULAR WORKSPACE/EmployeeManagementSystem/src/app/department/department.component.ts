@@ -9,6 +9,15 @@ import { Department } from '../classes/department';
 export class DepartmentComponent {
 title="Employee Management System";
 age=0;
+counter=0;
+colorArray=['green','blue','red','pink','yellow'];
+myStyle={
+  borderColor:'gray',
+  borderStyle:'double',
+  borderWidth:'10px',
+  backgroundColor:'pink'
+ }
+ 
  deptArray=new Array<Department>();
  deparment=new Department("LD","Learning and Development",100000,2015, "https://picsum.photos/id/560/200/300");
  constructor(){
@@ -17,8 +26,19 @@ age=0;
     new Department("JW","Java Web",400000,2000,  "https://picsum.photos/id/564/200/300"),
     new Department("DN","Dot Net",500000,2000,  "https://picsum.photos/id/562/200/300")
  ];
- setTimeout(()=>{this.deparment.deptName="Design Department"}, 6000);
+ setTimeout(()=>this.deparment.deptName="Design Department", 6000);
+ let interval1=setInterval(()=>{
+  this.changeBorderColor()
+},1000);
  }
+
+ changeBorderColor(){
+  this.myStyle.borderColor=this.colorArray[this.counter];
+  this.counter++;
+  if(this.counter==this.colorArray.length)
+  this.counter=0;
+ }
+
  display():void{
   console.log("Field focused");
   console.log(this.deparment);
@@ -42,10 +62,8 @@ age=0;
  }
  bstyle="double";
  bcolor="green";
- myStyle={
-  borderColor:'green',
-  borderStyle:'double',
-  borderWidth:'5px',
-  backgroundColor:'pink'
+ obj:any;
+ applyStyle(){
+  this.obj=this.myStyle;
  }
 }
