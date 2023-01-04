@@ -106,3 +106,27 @@
         <p>You are NOT allowed for voting</p>
     </ng-template>
 </section>
+
+<!--  50000 100000 : LB
+      100001 500000 : MB
+    500001    10000000 : HB-->
+
+    <table border="3">
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+               
+                    <td>{{depart.deptId}}</td>
+                    <td>{{depart.deptName}}</td>
+                    <td>{{depart.deptBudget}}</td>
+                    <td>{{depart.deptEstYear}}</td>
+                    <td>
+                        <span [ngSwitch]="true">
+                            <b *ngSwitchCase="depart.deptBudget>=50000 && depart.deptBudget<=100000">LB</b>
+                            <b *ngSwitchCase="depart.deptBudget>=100001 && depart.deptBudget<=5000000">MB</b>
+                            <b *ngSwitchCase="depart.deptBudget>=5000001 && depart.deptBudget<=10000000">HB</b>
+                            <b *ngSwitchDefault="">NA</b>
+                        </span>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
