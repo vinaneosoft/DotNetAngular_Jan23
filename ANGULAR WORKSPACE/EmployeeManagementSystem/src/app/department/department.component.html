@@ -202,8 +202,8 @@
                <th (click)="sortBy('deptEstDate')">ES DATE</th></thead>
         <tbody>
             <tr *ngFor="let depart of deptArray | orderBy :orderObject.sortProperty : orderObject.sortOrder : orderObject.sortCase">
-                    <td>{{depart.deptId}}</td>
-                    <td>{{depart.deptName}}</td>
+                    <td>{{depart.deptId | prefix : 'NEO' | suffix :'DAD'}}</td>
+                    <td>{{depart.deptName | suffix : 'Hello' | prefix:'Hi'}}</td>
                     <td>{{depart.deptBudget}}</td>
                     <td>{{depart.deptEstYear}}</td>
                     <td>{{depart.deptEstDate}}</td>

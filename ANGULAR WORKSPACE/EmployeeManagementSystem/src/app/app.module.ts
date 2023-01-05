@@ -10,6 +10,8 @@ import { DepartmentComponent } from './department/department.component';
 import { FormsModule } from '@angular/forms';
 import { DeptContainerComponent } from './dept-container/dept-container.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { PrefixPipe } from './cutompipes/prefix.pipe';
+import { SuffixPipe } from './custompipes/suffix.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { OrderModule } from 'ngx-order-pipe';
     FooterComponent,
     NavbarComponent,
     DepartmentComponent,
-    DeptContainerComponent
+    DeptContainerComponent,
+    PrefixPipe,
+    SuffixPipe
   ],
   imports: [
     BrowserModule,
