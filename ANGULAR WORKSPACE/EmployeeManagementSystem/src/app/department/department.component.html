@@ -80,7 +80,7 @@
     <input type="number" #budgetNode>
     <label>Enter Dept Establishment year:</label>
     <input type="number" #yearNode>
-    <button (click)="addDeparment(idNode.value,dnameNode.value,budgetNode.value,yearNode.value)">ADD DEPARMENT</button>
+    <button (click)="addDeparment(idNode.value,dnameNode.value,budgetNode.value,yearNode.value)" class="btn btn-success">ADD DEPARMENT</button>
 </section>
 <section [ngClass]="styleArray">
     <table border="3">
@@ -194,12 +194,15 @@
     <ol>
         <li *ngFor="let color of colorArray | orderBy">{{color}}</li>
     </ol>
-    <table border="3">
-        <thead><th (click)="sortBy('deptId')">ID</th>
+    <table border="3" class="table table-hover">
+        <thead><tr>
+            <th (click)="sortBy('deptId')">ID</th>
                <th (click)="sortBy('deptName')">NAME</th>
                <th (click)="sortBy('deptBudget')">BUDGET</th>
                <th (click)="sortBy('deptEstYear')">ES YEAR</th>
-               <th (click)="sortBy('deptEstDate')">ES DATE</th></thead>
+               <th (click)="sortBy('deptEstDate')">ES DATE</th>
+            </tr>
+        </thead>
         <tbody>
             <tr *ngFor="let depart of deptArray | orderBy :orderObject.sortProperty : orderObject.sortOrder : orderObject.sortCase">
                     <td>{{depart.deptId | prefix : 'NEO' | suffix :'DAD'}}</td>

@@ -12,6 +12,7 @@ import { DeptContainerComponent } from './dept-container/dept-container.componen
 import { OrderModule } from 'ngx-order-pipe';
 import { PrefixPipe } from './cutompipes/prefix.pipe';
 import { SuffixPipe } from './custompipes/suffix.pipe';
+import { TestPipe } from './test.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SuffixPipe } from './custompipes/suffix.pipe';
     DepartmentComponent,
     DeptContainerComponent,
     PrefixPipe,
-    SuffixPipe
+    SuffixPipe,
+    TestPipe
   ],
   imports: [
     BrowserModule,
