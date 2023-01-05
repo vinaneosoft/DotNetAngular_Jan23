@@ -178,3 +178,16 @@
     </table>
     <p>{{ 1000.23 | number: '3.2-2' }}</p>
     <p>{{ 10000.356| number: '3.2-2'}}</p>
+    <table border="3">
+        <thead><th>EST DATE</th><th>EST DATE</th><th>EST DATE</th><th>EST DATE</th><th>EST DATE</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+                   <td>{{depart.deptEstDate}}</td>
+                   <td>{{depart.deptEstDate | date}}</td> <!-- medium date-->
+                   <td>{{depart.deptEstDate | date : 'shortDate'}}</td>
+                   <td>{{depart.deptEstDate | date : 'longDate'}}</td>
+                   <td>{{depart.deptEstDate | date : 'fullDate'}}</td>
+                   <td>{{depart.deptEstDate | date : 'dd/MMMM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
