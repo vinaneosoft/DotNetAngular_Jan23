@@ -66,4 +66,6 @@ myStyle={
  applyStyle(){
   this.obj=this.myStyle;
  }
+ styleArray=['fontStyle',"colorStyle"];
 }
+

@@ -74,7 +74,7 @@
     <button (click)="pass(nameNode.value)" #btnNode>CLICK</button>
     <input type="radio" (change)="test()"> 
 </section>
-<section>
+<section class="fontStyle colorStyle">
     <label>Enter Dept Id:</label>
     <input type="text" #idNode>
     <label>Enter Dept Name:</label>
@@ -85,7 +85,7 @@
     <input type="number" #yearNode>
     <button (click)="addDeparment(idNode.value,dnameNode.value,budgetNode.value,yearNode.value)">ADD DEPARMENT</button>
 </section>
-<section>
+<section [ngClass]="styleArray">
     <table border="3">
         <tr><td *ngFor="let st of stationArray">{{st}}</td></tr>
     </table>
