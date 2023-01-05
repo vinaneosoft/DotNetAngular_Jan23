@@ -54,18 +54,12 @@
         <p>Year budget of depatment is <b>{{deparment.deptBudget}}</b></p>
     </div>
 </section>
+<hr>
+<h2>Data passing from parent to children</h2>
 <article class="flexContainer">
-<section class="myDepartment" *ngFor="let depart of deptArray">
-    <figure>
-        <h2>Id: {{depart.deptId}}</h2>
-        <img [src]="depart.deptImage">
-        <figcaption>{{depart.deptName}}</figcaption>
-    </figure>
-    <div>
-        <p>This is depatment is established in year <b>{{depart.deptEstYear}}</b></p>
-        <p>Year budget of depatment is <b>{{depart.deptBudget}}</b></p>
+    <div *ngFor="let dept of deptArray">
+         <app-dept-container [department]=dept></app-dept-container>
     </div>
-</section>
 </article>
 <hr>
 <section>
