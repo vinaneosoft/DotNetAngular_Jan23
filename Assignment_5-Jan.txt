@@ -1,0 +1,4 @@
+When u r clicking on heading first time then order should be ascending on that property
+When u r clicking on heading multiple times then order should be opposite of current order
+
+Hint : check previous heading clicked and current heading clicked

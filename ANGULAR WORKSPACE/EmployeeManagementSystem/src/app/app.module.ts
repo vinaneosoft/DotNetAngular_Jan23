@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DepartmentComponent } from './department/department.component';
 import { FormsModule } from '@angular/forms';
 import { DeptContainerComponent } from './dept-container/dept-container.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { DeptContainerComponent } from './dept-container/dept-container.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

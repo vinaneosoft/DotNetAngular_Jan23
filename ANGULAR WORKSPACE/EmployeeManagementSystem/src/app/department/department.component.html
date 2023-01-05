@@ -183,11 +183,30 @@
         <tbody>
             <tr *ngFor="let depart of deptArray">
                    <td>{{depart.deptEstDate}}</td>
-                   <td>{{depart.deptEstDate | date}}</td> <!-- medium date-->
+                   <td>{{depart.deptEstDate | date}}</td> <!-- mediumDate-->
                    <td>{{depart.deptEstDate | date : 'shortDate'}}</td>
                    <td>{{depart.deptEstDate | date : 'longDate'}}</td>
                    <td>{{depart.deptEstDate | date : 'fullDate'}}</td>
                    <td>{{depart.deptEstDate | date : 'dd/MMMM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ol>
+        <li *ngFor="let color of colorArray | orderBy">{{color}}</li>
+    </ol>
+    <table border="3">
+        <thead><th (click)="sortBy('deptId')">ID</th>
+               <th (click)="sortBy('deptName')">NAME</th>
+               <th (click)="sortBy('deptBudget')">BUDGET</th>
+               <th (click)="sortBy('deptEstYear')">ES YEAR</th>
+               <th (click)="sortBy('deptEstDate')">ES DATE</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray | orderBy :orderObject.sortProperty : orderObject.sortOrder : orderObject.sortCase">
+                    <td>{{depart.deptId}}</td>
+                    <td>{{depart.deptName}}</td>
+                    <td>{{depart.deptBudget}}</td>
+                    <td>{{depart.deptEstYear}}</td>
+                    <td>{{depart.deptEstDate}}</td>
             </tr>
         </tbody>
     </table>
