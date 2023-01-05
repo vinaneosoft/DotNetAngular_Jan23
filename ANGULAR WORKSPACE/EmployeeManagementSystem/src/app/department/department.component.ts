@@ -12,6 +12,7 @@ age=0;
 counter=0;
 colorArray=['green','blue','red','pink','yellow'];
 fromChild="";
+eyear=0;
 myStyle={
   borderColor:'gray',
   borderStyle:'double',
@@ -20,13 +21,14 @@ myStyle={
  }
  
  deptArray=new Array<Department>();
- deparment=new Department("LD","Learning and Development",100000,2015, "https://picsum.photos/id/560/200/300");
+ deparment=new Department("LD","Learning and Development",100000,2015, "https://picsum.photos/id/560/200/300", new Date('23 Nov 2015'));
  constructor(){
   this.deptArray=[
-    new Department("LD","Learning and Research",100000,2015, "https://picsum.photos/id/560/200/300"),
-    new Department("JW","Java Web",400000,2000,  "https://picsum.photos/id/564/200/300"),
-    new Department("DN","Dot Net",500000,2000,  "https://picsum.photos/id/562/200/300")
- ];
+    new Department("LD","learning and Research",100000.56478,2015, "https://picsum.photos/id/560/200/300", new Date('23 Nov 2015')),
+    new Department("JW","Java web",400000.5467,2000,  "https://picsum.photos/id/564/200/300",new Date('13 Aug 2000')),
+    new Department("DN","Dot-nEt",500000.7675436,2000,  "https://picsum.photos/id/562/200/300",new Date('22 Aug 2000')),
+    new Department("HR","Human Resource",500000.5,2001,  "https://picsum.photos/id/564/200/300",new Date('22 Aug 2001'))
+  ];
  setTimeout(()=>this.deparment.deptName="Design Department", 6000);
  let interval1=setInterval(()=>{
   this.changeBorderColor()
@@ -50,7 +52,7 @@ myStyle={
  }
  addDeparment(id:string,name:string,budget:string,year:string):void{
   console.log(id+" "+name+" "+budget+" "+year);
-  let newDept=new Department(id,name, parseFloat(budget),parseInt(year),"");
+  let newDept=new Department(id,name, parseFloat(budget),parseInt(year),"",new Date());
   this.deptArray.push(newDept);
  }
  test(){
@@ -71,6 +73,9 @@ myStyle={
 
  acceptData(data:string){
   this.fromChild=data;
+ }
+ acceptData2(data2:number){
+this.eyear=data2;
  }
 }
 

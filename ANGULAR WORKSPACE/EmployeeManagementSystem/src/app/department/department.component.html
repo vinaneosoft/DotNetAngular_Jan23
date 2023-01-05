@@ -57,11 +57,13 @@
 <hr>
 <h2>Data passing from parent to children</h2>
 <h3>{{fromChild}}</h3>
+<h4>{{eyear}}</h4>
 <article class="flexContainer">
     <div *ngFor="let dept of deptArray">
-         <app-dept-container [department]=dept  (emitter)="acceptData($event)"></app-dept-container>
+         <app-dept-container [department]=dept  (emitter)="acceptData($event)" (emitter2)="acceptData2($event)"></app-dept-container>
     </div>
 </article>
+
 <hr>
 <section>
     <label>Enter Department Name if change:</label>
@@ -125,3 +127,54 @@
             </tr>
         </tbody>
     </table>
+    <hr>
+    <h3>Working with pipes</h3>
+    <table border="3">
+        <thead><th>ID</th><th>NAME</th><th>BUDGET</th><th>ES YEAR</th><th>ES DATE</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+                    <td>{{depart.deptId}}</td>
+                    <td>{{depart.deptName}}</td>
+                    <td>{{depart.deptBudget}}</td>
+                    <td>{{depart.deptEstYear}}</td>
+                    <td>{{depart.deptEstDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="3">
+        <thead><th>NAME</th><th>NAME</th><th>NAME</th><th>NAME</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+                   <td>{{depart.deptName}}</td>
+                    <td>{{depart.deptName | uppercase}}</td>
+                    <td>{{depart.deptName | lowercase}}</td>
+                    <td>{{depart.deptName | titlecase}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="3">
+        <thead><th>BUDGET</th><th>BUDGET</th><th>BUDGET</th><th>BUDGET</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+                   <td>{{depart.deptBudget}}</td>
+                   <td>{{depart.deptBudget | number}}</td> <!-- round to 3 digits-->
+                   <td>{{depart.deptBudget | number : '12.2-2'}}</td> 
+                   <td>{{depart.deptBudget | number : '8.1-3'}}</td> 
+            </tr>
+        </tbody>
+    </table>
+    <table border="3">
+        <thead><th>BUDGET</th><th>BUDGET</th><th>BUDGET</th><th>BUDGET</th></thead>
+        <tbody>
+            <tr *ngFor="let depart of deptArray">
+                   <td>{{depart.deptBudget}}</td>
+                   <td>{{depart.deptBudget | currency}}</td> <!-- round to 2 digits, $ applied-->
+                   <td>{{depart.deptBudget | currency : 'INR'}}</td>  <!-- symbol-->
+                   <td>{{depart.deptBudget | currency : 'INR': 'code'}}</td> 
+                   <td>{{depart.deptBudget | currency : 'INR': 'code' : '8.3-3'}}</td> 
+                   <td>{{depart.deptBudget | currency : 'USD' :'symbol':'8.3-3'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>{{ 1000.23 | number: '3.2-2' }}</p>
+    <p>{{ 10000.356| number: '3.2-2'}}</p>

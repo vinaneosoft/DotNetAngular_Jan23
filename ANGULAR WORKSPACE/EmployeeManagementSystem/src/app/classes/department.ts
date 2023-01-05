@@ -4,11 +4,13 @@ export class Department {
     deptBudget:number;
     deptEstYear:number;
     deptImage:string
-    constructor(id="BB",name="AA",budget=0, year=0, image=""){
+    deptEstDate:Date;
+    constructor(id="BB",name="AA",budget=0, year=0, image="", deptEstDate=new Date()){
         this.deptId=id;
         this.deptName=name;
         this.deptBudget=budget;
         this.deptEstYear=year;
         this.deptImage=image;
+        this.deptEstDate=deptEstDate;
     }
 }

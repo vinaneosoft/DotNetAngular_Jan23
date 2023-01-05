@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output,OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output,OnInit, AfterContentInit } from '@angular/core';
 import { Department } from '../classes/department';
 
 @Component({
@@ -6,14 +6,18 @@ import { Department } from '../classes/department';
   templateUrl: './dept-container.component.html',
   styleUrls: ['./dept-container.component.css']
 })
-export class DeptContainerComponent implements OnInit {
+export class DeptContainerComponent implements OnInit, AfterContentInit {
   @Input()   // input data is comping from parent side
   department:Department;
 
   subHeading="NEOSOFT TECHNOLOGY";
-
+  year=1980;
+  array =[this.subHeading,this.year];
   @Output()
   emitter=new EventEmitter<string>();
+
+  @Output()
+  emitter2=new EventEmitter<number>();
 
   constructor(){
     console.log("called automatically");  
@@ -22,12 +26,17 @@ export class DeptContainerComponent implements OnInit {
       deptBudget:0,
       deptEstYear:0,
       deptName:"",
-      deptImage:""
+      deptImage:"",
+      deptEstDate:new Date()
     }
+  }
+  ngAfterContentInit(): void {
+    
+    this.emitter.emit(this.subHeading);
+    this.emitter2.emit(this.year);
   }
   // 1st lifecycle
   ngOnInit(): void {
-    console.log("this function gets called once");
-    this.emitter.emit(this.subHeading);
+   
   }
 }
