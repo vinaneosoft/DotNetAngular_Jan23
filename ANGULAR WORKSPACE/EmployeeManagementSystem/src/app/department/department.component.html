@@ -56,9 +56,10 @@
 </section>
 <hr>
 <h2>Data passing from parent to children</h2>
+<h3>{{fromChild}}</h3>
 <article class="flexContainer">
     <div *ngFor="let dept of deptArray">
-         <app-dept-container [department]=dept></app-dept-container>
+         <app-dept-container [department]=dept  (emitter)="acceptData($event)"></app-dept-container>
     </div>
 </article>
 <hr>

@@ -11,6 +11,7 @@ title="Employee Management System";
 age=0;
 counter=0;
 colorArray=['green','blue','red','pink','yellow'];
+fromChild="";
 myStyle={
   borderColor:'gray',
   borderStyle:'double',
@@ -67,5 +68,9 @@ myStyle={
   this.obj=this.myStyle;
  }
  styleArray=['fontStyle',"colorStyle"];
+
+ acceptData(data:string){
+  this.fromChild=data;
+ }
 }
 
