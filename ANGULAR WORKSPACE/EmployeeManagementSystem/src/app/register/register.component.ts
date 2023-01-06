@@ -14,7 +14,7 @@ export class RegisterComponent {
   constructor(){
     this.registerForm=new FormGroup({
       empName:new FormControl("" , [Validators.required, Validators.minLength(2) ]),
-      empSalary:new FormControl("",[Validators.required ]),
+      empSalary:new FormControl("",[Validators.required, Validators.min(0)]),
       empGender:new FormControl(""),
       empAddress:new FormControl("",[Validators.required ]),
       departmentId:new FormControl("",[Validators.required ]),
@@ -28,6 +28,9 @@ export class RegisterComponent {
   return this.registerForm.get('empName');
  }
 
+ get esalary(){
+  return this.registerForm.get('empSalary');
+ }
 
   collectData():void{
     console.log(this.registerForm.value);

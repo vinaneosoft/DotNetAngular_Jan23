@@ -8,13 +8,19 @@
             </tr>
             <tr *ngIf="ename?.touched && ename?.invalid">
                 <td></td>
-                <td *ngIf="ename.errors['required']">Employee Name is required</td>
-                <td *ngIf="ename.errors['minlength']">Please add min 2 characters</td>
+                <td *ngIf="ename!.errors!['required']">Employee Name is required</td>
+                <td *ngIf="ename!.errors!['minlength']">Please add min 2 characters</td>
             </tr>
 
             <tr>
                 <td><label>Salary:</label></td>
-                <td><input type="number" formControlName="empSalary" ></td></tr>
+                <td><input type="number" formControlName="empSalary" ></td>
+            </tr>
+            <tr *ngIf="esalary?.touched && esalary?.invalid">
+                <td></td>
+                <td *ngIf="esalary!.errors!['required']">Salary is required</td>
+                <td *ngIf="esalary!.errors!['min']">-ve value not allowed</td>
+            </tr>
             <tr>
                 <td><label>Gender:</label></td>
                 <td>Male: <input type="radio" value="male"  name="empGender"  formControlName="empGender" >
@@ -23,6 +29,11 @@
             <tr>
                 <td><label>Address:</label></td>
                 <td><input type="text" formControlName="empAddress"></td>
+            </tr>
+            <tr *ngIf="?.touched && ?.invalid">
+                <td></td>
+                <td *ngIf="!.errors!['required']">Address is required</td>
+               
             </tr>
             <tr>
                 <td><label>Department:</label></td>
@@ -39,13 +50,28 @@
                 <td>Email Id:</td>
                 <td><input type="email" formControlName="emailId"></td>
             </tr>
+            <tr *ngIf="?.touched && ?.invalid">
+                <td></td>
+                <td *ngIf="!.errors!['required']">Address is required</td>
+               
+            </tr>
             <tr>
                 <td>Set password:</td>
                 <td><input type="password" formControlName="password"></td>
             </tr>
+            <tr *ngIf="?.touched && ?.invalid">
+                <td></td>
+                <td *ngIf="!.errors!['required']">Address is required</td>
+               
+            </tr>
             <tr>
                 <td>Confirm password:</td>
                 <td><input type="password" formControlName="confirmPassword" ></td>
+            </tr>
+            <tr *ngIf="?.touched && ?.invalid">
+                <td></td>
+                <td *ngIf="!.errors!['required']">Address is required</td>
+               
             </tr>
             <tr>
                 <input type="submit" value="REGISTER"/>
