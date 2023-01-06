@@ -10,8 +10,8 @@
                 <td><input type="number" formControlName="empSalary"></td></tr>
             <tr>
                 <td><label>Gender:</label></td>
-                <td>Male: <input type="radio" name="empGender" formControlName="empGender">
-                     Female: <input type="radio" name="empGender" formControlName="empGender"></td>
+                <td>Male: <input type="radio" value="male"  name="empGender"  formControlName="empGender">
+                     Female: <input type="radio" value="female" name="empGender" formControlName="empGender"></td>
             </tr>
             <tr>
                 <td><label>Address:</label></td>
@@ -27,6 +27,15 @@
                     <option value="HR">Human Resource</option>
                 </select>
             </td>
+            </tr>
+            <tr>
+                <td>Email Id:</td><td><input type="email" formControlName="emailId"></td>
+            </tr>
+            <tr>
+                <td>Set password:</td><td><input type="password" formControlName="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm password:</td><td><input type="password" formControlName="confirmPassword"></td>
             </tr>
             <tr>
                 <input type="submit" value="REGISTER"/>

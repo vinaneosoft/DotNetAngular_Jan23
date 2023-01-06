@@ -16,7 +16,10 @@ export class RegisterComponent {
       empSalary:new FormControl(),
       empGender:new FormControl(),
       empAddress:new FormControl(),
-      departmentId:new FormControl()
+      departmentId:new FormControl(),
+      emailId:new FormControl(),
+      password:new FormControl(), 
+      confirmPassword:new FormControl()
     });
   }
   collectData():void{
