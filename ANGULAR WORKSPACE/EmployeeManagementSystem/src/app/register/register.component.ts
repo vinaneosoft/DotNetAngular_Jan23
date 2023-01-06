@@ -24,6 +24,10 @@ export class RegisterComponent {
     });
   }
 
+  get deptId(){
+    return this.registerForm.get('departmentId');
+   }
+  
  get ename(){
   return this.registerForm.get('empName');
  }
@@ -31,6 +35,22 @@ export class RegisterComponent {
  get esalary(){
   return this.registerForm.get('empSalary');
  }
+
+ get eaddress(){
+  return this.registerForm.get('empAddress');
+ }
+
+ get eemail(){
+  return this.registerForm.get('emailId');
+ }
+
+ get epass(){
+  return this.registerForm.get('password');
+ }
+ get econfirmpass(){
+  return this.registerForm.get('confirmPassword');
+ }
+
 
   collectData():void{
     console.log(this.registerForm.value);

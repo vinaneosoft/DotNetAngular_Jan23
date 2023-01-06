@@ -30,9 +30,9 @@
                 <td><label>Address:</label></td>
                 <td><input type="text" formControlName="empAddress"></td>
             </tr>
-            <tr *ngIf="?.touched && ?.invalid">
+            <tr *ngIf="eaddress?.touched && eaddress?.invalid">
                 <td></td>
-                <td *ngIf="!.errors!['required']">Address is required</td>
+                <td *ngIf="eaddress!.errors!['required']">Address is required</td>
                
             </tr>
             <tr>
@@ -46,31 +46,34 @@
                 </select>
             </td>
             </tr>
+            <tr *ngIf="deptId?.touched &&deptId?.invalid">
+                <td></td>
+                <td *ngIf="deptId!.errors!['required']">Please select department</td>
+            </tr>
             <tr>
                 <td>Email Id:</td>
                 <td><input type="email" formControlName="emailId"></td>
             </tr>
-            <tr *ngIf="?.touched && ?.invalid">
+            <tr *ngIf="eemail?.touched &&eemail ?.invalid">
                 <td></td>
-                <td *ngIf="!.errors!['required']">Address is required</td>
-               
+                <td *ngIf="eemail!.errors!['required']">Email id is required</td>
             </tr>
             <tr>
                 <td>Set password:</td>
                 <td><input type="password" formControlName="password"></td>
             </tr>
-            <tr *ngIf="?.touched && ?.invalid">
+            <tr *ngIf="epass?.touched && epass?.invalid">
                 <td></td>
-                <td *ngIf="!.errors!['required']">Address is required</td>
+                <td *ngIf="epass!.errors!['required']">Password is required</td>
                
             </tr>
             <tr>
                 <td>Confirm password:</td>
                 <td><input type="password" formControlName="confirmPassword" ></td>
             </tr>
-            <tr *ngIf="?.touched && ?.invalid">
+            <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid">
                 <td></td>
-                <td *ngIf="!.errors!['required']">Address is required</td>
+                <td *ngIf="econfirmpass!.errors!['required']">Confirm password is required</td>
                
             </tr>
             <tr>
