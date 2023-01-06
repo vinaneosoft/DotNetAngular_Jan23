@@ -6,9 +6,10 @@
             <tr><td><label>Name:</label></td>
                 <td><input type="text" formControlName="empName"></td>
             </tr>
-            <tr *ngIf="ename.touched && ename.invalid">
+            <tr *ngIf="ename?.touched && ename?.invalid">
                 <td></td>
-                <td>Employee Name is required</td>
+                <td *ngIf="ename.errors['required']">Employee Name is required</td>
+                <td *ngIf="ename.errors['minlength']">Please add min 2 characters</td>
             </tr>
 
             <tr>

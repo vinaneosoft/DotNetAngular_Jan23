@@ -13,7 +13,7 @@ export class RegisterComponent {
   employee=new Employee();
   constructor(){
     this.registerForm=new FormGroup({
-      empName:new FormControl("" , [Validators.required ]),
+      empName:new FormControl("" , [Validators.required, Validators.minLength(2) ]),
       empSalary:new FormControl("",[Validators.required ]),
       empGender:new FormControl(""),
       empAddress:new FormControl("",[Validators.required ]),
@@ -39,6 +39,13 @@ export class RegisterComponent {
   builtin validation method(form control object){
       if value==""
       return {'required':true}
+      else 
+        null
+  }
+
+    builtin validation method(form control object){
+      if value==""
+      return {'minlength':true}
       else 
         null
   }
