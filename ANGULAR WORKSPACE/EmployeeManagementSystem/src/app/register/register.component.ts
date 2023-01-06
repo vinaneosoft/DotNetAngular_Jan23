@@ -19,4 +19,8 @@ export class RegisterComponent {
       departmentId:new FormControl()
     });
   }
+  collectData():void{
+    console.log(this.registerForm);
+    
+  }
 }
