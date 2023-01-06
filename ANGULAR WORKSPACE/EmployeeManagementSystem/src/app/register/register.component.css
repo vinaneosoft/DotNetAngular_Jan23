@@ -1,7 +1,7 @@
 h1{
     color:red;
 }
-button{
+[ type="submit"],[ type="reset"]{
     color:white;
     background-color:brown;
     padding:5px;;
