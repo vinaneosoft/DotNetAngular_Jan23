@@ -1,0 +1,16 @@
+h1{
+    color:red;
+}
+button{
+    color:white;
+    background-color:brown;
+    padding:5px;;
+    width:100px;
+   
+}
+.tblClass{
+    border:2px;
+    color: brown;
+    height:300px;
+    background-color:bisque;
+}

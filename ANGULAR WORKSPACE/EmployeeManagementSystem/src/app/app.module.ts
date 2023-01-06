@@ -13,6 +13,9 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PrefixPipe } from './cutompipes/prefix.pipe';
 import { SuffixPipe } from './custompipes/suffix.pipe';
 import { TestPipe } from './test.pipe';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { TestPipe } from './test.pipe';
     DeptContainerComponent,
     PrefixPipe,
     SuffixPipe,
-    TestPipe
+    TestPipe,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
