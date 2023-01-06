@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ViewNotFoundComponent } from './view-not-found/view-not-found.component
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ViewNotFoundComponent
+    ViewNotFoundComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     BrowserModule,
