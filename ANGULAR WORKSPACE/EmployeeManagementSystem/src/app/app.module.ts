@@ -16,6 +16,7 @@ import { TestPipe } from './test.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     TestPipe,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ViewNotFoundComponent
   ],
   imports: [
     BrowserModule,
