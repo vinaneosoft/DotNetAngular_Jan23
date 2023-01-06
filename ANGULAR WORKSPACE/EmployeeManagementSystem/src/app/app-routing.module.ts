@@ -9,9 +9,9 @@ import { ViewNotFoundComponent } from './view-not-found/view-not-found.component
 
 const routes: Routes = [
 { path:'home',   component:HomeComponent, 
-children:[
-  {  path:'companydetails', component:CompanyDetailsComponent}
-]      
+  children:[
+    {  path:'companydetails', component:CompanyDetailsComponent}
+  ]      
 },
 { path:'departments', component:DepartmentComponent },
 { path:'login', component:LoginComponent },
