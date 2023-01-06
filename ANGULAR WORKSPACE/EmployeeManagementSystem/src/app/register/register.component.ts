@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Employee } from '../classes/employee';
 
 @Component({
   selector: 'app-register',
@@ -9,21 +10,37 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class RegisterComponent {
 
   registerForm:FormGroup=new FormGroup({});
-
+  employee=new Employee();
   constructor(){
     this.registerForm=new FormGroup({
-      empName:new FormControl(),
-      empSalary:new FormControl(),
-      empGender:new FormControl(),
-      empAddress:new FormControl(),
-      departmentId:new FormControl(),
-      emailId:new FormControl(),
-      password:new FormControl(), 
-      confirmPassword:new FormControl()
+      empName:new FormControl("" , [Validators.required ]),
+      empSalary:new FormControl("",[Validators.required ]),
+      empGender:new FormControl(""),
+      empAddress:new FormControl("",[Validators.required ]),
+      departmentId:new FormControl("",[Validators.required ]),
+      emailId:new FormControl("",[Validators.required ]),
+      password:new FormControl("",[Validators.required ]), 
+      confirmPassword:new FormControl("",[Validators.required ])
     });
   }
+
+ get ename(){
+  return this.registerForm.get('empName');
+ }
+
+
   collectData():void{
-    console.log(this.registerForm);
-    
+    console.log(this.registerForm.value);
+    this.employee=this.registerForm.value;
+    console.log(this.employee);
   }
 }
+/*
+  builtin validation method(form control object){
+      if value==""
+      return {'required':true}
+      else 
+        null
+  }
+
+*/

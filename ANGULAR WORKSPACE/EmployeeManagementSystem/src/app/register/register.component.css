@@ -14,3 +14,22 @@ h1{
     height:300px;
     background-color:bisque;
 }
+
+.ng-valid{
+    border: 2px solid green;
+}
+.ng-invalid{
+    border: 2px solid red;
+}
+input.ng-untouched{
+    background-color: yellow; 
+}
+input.ng-touched{
+    background-color: blueviolet;  
+}
+input.ng-pristine{
+    background-color: aqua; 
+}
+input.ng-dirty{
+    background-color: burlywood; 
+}

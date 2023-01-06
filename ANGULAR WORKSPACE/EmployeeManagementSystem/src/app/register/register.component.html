@@ -4,13 +4,19 @@
         <h1>Employee Joining Form</h1>
         <table class="tblClass">
             <tr><td><label>Name:</label></td>
-                <td><input type="text" formControlName="empName"></td></tr>
+                <td><input type="text" formControlName="empName"></td>
+            </tr>
+            <tr *ngIf="ename.touched && ename.invalid">
+                <td></td>
+                <td>Employee Name is required</td>
+            </tr>
+
             <tr>
                 <td><label>Salary:</label></td>
-                <td><input type="number" formControlName="empSalary"></td></tr>
+                <td><input type="number" formControlName="empSalary" ></td></tr>
             <tr>
                 <td><label>Gender:</label></td>
-                <td>Male: <input type="radio" value="male"  name="empGender"  formControlName="empGender">
+                <td>Male: <input type="radio" value="male"  name="empGender"  formControlName="empGender" >
                      Female: <input type="radio" value="female" name="empGender" formControlName="empGender"></td>
             </tr>
             <tr>
@@ -20,7 +26,7 @@
             <tr>
                 <td><label>Department:</label></td>
                 <td>
-                <select formControlName="departmentId">
+                <select formControlName="departmentId" >
                     <option value="LD">Learning and Developement</option>
                     <option value="JW">Java Web</option>
                     <option value="DN">Dot Net</option>
@@ -29,13 +35,16 @@
             </td>
             </tr>
             <tr>
-                <td>Email Id:</td><td><input type="email" formControlName="emailId"></td>
+                <td>Email Id:</td>
+                <td><input type="email" formControlName="emailId"></td>
             </tr>
             <tr>
-                <td>Set password:</td><td><input type="password" formControlName="password"></td>
+                <td>Set password:</td>
+                <td><input type="password" formControlName="password"></td>
             </tr>
             <tr>
-                <td>Confirm password:</td><td><input type="password" formControlName="confirmPassword"></td>
+                <td>Confirm password:</td>
+                <td><input type="password" formControlName="confirmPassword" ></td>
             </tr>
             <tr>
                 <input type="submit" value="REGISTER"/>
