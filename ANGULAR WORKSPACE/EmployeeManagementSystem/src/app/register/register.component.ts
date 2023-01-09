@@ -8,9 +8,9 @@ import { Employee } from '../classes/employee';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
-  namePattern="^[A-Za-z]*$";
+  namePattern="^[A-Za-z ]*$";
   registerForm:FormGroup=new FormGroup({});
   employee=new Employee();
   constructor(){
@@ -69,8 +69,10 @@ export class RegisterComponent {
      console.log(cPassNode?.value);
       if(passNode?.value==cPassNode?.value)
         return null
+      
       else  
         return {'passMatch':true};
+    
   }
 }
 /*

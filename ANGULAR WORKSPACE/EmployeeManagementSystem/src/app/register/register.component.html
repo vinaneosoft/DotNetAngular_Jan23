@@ -3,7 +3,7 @@
     <div>
         <h1>Employee Joining Form</h1>
         <table class="tblClass">
-            <tr><td><label>Name:</label></td>
+            <tr><td><label>Name: </label></td>
                 <td><input type="text" formControlName="empName"></td>
             </tr>
             <tr *ngIf="ename?.touched && ename?.invalid" class="errMsg">
@@ -17,7 +17,7 @@
                 <td><label>Salary:</label></td>
                 <td><input type="number" formControlName="empSalary" ></td>
             </tr>
-            <tr *ngIf="esalary?.touched && esalary?.invalid">
+            <tr *ngIf="esalary?.touched && esalary?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="esalary!.errors!['required']">Salary is required</td>
                 <td *ngIf="esalary!.errors!['min']">-ve value not allowed</td>
@@ -31,7 +31,7 @@
                 <td><label>Address:</label></td>
                 <td><input type="text" formControlName="empAddress"></td>
             </tr>
-            <tr *ngIf="eaddress?.touched && eaddress?.invalid">
+            <tr *ngIf="eaddress?.touched && eaddress?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="eaddress!.errors!['required']">Address is required</td>
                
@@ -47,7 +47,7 @@
                 </select>
             </td>
             </tr>
-            <tr *ngIf="deptId?.touched &&deptId?.invalid">
+            <tr *ngIf="deptId?.touched &&deptId?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="deptId!.errors!['required']">Please select department</td>
             </tr>
@@ -55,7 +55,7 @@
                 <td>Email Id:</td>
                 <td><input type="email" formControlName="emailId"></td>
             </tr>
-            <tr *ngIf="eemail?.touched &&eemail ?.invalid">
+            <tr *ngIf="eemail?.touched &&eemail ?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="eemail!.errors!['required']">Email id is required</td>
                 <td *ngIf="eemail!.errors!['email']">Please put valid email id</td>
@@ -64,10 +64,10 @@
                 <td>Set password:</td>
                 <td><input type="text" formControlName="password"></td>
             </tr>
-            <tr *ngIf="epass?.touched && epass?.invalid">
+            <tr *ngIf="epass?.touched && epass?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="epass!.errors!['required']">Password is required</td>
-                <td *ngIf="epass!.errors!['pattern']">
+                <td *ngIf="epass.hasError('pattern')">
                     <b>Password should contain atleast one</b>
                     <ol>
                     <li>small letter</li>
@@ -80,18 +80,18 @@
             </tr>
             <tr>
                 <td>Confirm password:</td>
-                <td><input type="text" formControlName="confirmPassword" ></td>
+                <td><input type="text" formControlName="confirmPassword" [ngStyle]="{border:(registerForm.hasError('passMatch') ? 'red 2px solid':'')}"></td>
             </tr>
-            <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid">
+            <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid" class="errMsg">
                 <td></td>
-                <td *ngIf="econfirmpass!.errors!['required']">Confirm password is required</td>
+                <td *ngIf="econfirmpass.hasError('required')">Confirm password is required</td>
             </tr>
-            <tr *ngIf="registerForm?.invalid && econfirmpass?.touched">
+            <tr *ngIf="registerForm?.invalid && econfirmpass?.touched" class="errMsg">
                 <td></td>
                 <td *ngIf="registerForm.hasError('passMatch')">Confirm password must be same as password</td>
             </tr>
             <tr>
-                <input type="submit" value="REGISTER"/>
+                <input type="submit" [disabled]="registerForm?.invalid" value="REGISTER"/>
                 <input type="reset" value="RESET"/>
             </tr>
         </table>       
