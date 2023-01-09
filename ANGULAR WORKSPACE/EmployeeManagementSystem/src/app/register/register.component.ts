@@ -9,6 +9,7 @@ import { Employee } from '../classes/employee';
 })
 export class RegisterComponent {
 
+  passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
   registerForm:FormGroup=new FormGroup({});
   employee=new Employee();
   constructor(){
@@ -16,10 +17,10 @@ export class RegisterComponent {
       empName:new FormControl("" , [Validators.required, Validators.minLength(2) ]),
       empSalary:new FormControl("",[Validators.required, Validators.min(0)]),
       empGender:new FormControl(""),
-      empAddress:new FormControl("",[Validators.required ]),
-      departmentId:new FormControl("",[Validators.required ]),
-      emailId:new FormControl("",[Validators.required ]),
-      password:new FormControl("",[Validators.required ]), 
+      empAddress:new FormControl("",Validators.required),
+      departmentId:new FormControl("",Validators.required),
+      emailId:new FormControl("",[Validators.required, Validators.email ]),
+      password:new FormControl("",[Validators.required, Validators.pattern(this.passPattern) ]), 
       confirmPassword:new FormControl("",[Validators.required ])
     });
   }
@@ -67,7 +68,7 @@ export class RegisterComponent {
   }
 
     builtin validation method(form control object){
-      if value==""
+      if length<.....
       return {'minlength':true}
       else 
         null

@@ -6,7 +6,7 @@
             <tr><td><label>Name:</label></td>
                 <td><input type="text" formControlName="empName"></td>
             </tr>
-            <tr *ngIf="ename?.touched && ename?.invalid">
+            <tr *ngIf="ename?.touched && ename?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="ename!.errors!['required']">Employee Name is required</td>
                 <td *ngIf="ename!.errors!['minlength']">Please add min 2 characters</td>
@@ -57,19 +57,29 @@
             <tr *ngIf="eemail?.touched &&eemail ?.invalid">
                 <td></td>
                 <td *ngIf="eemail!.errors!['required']">Email id is required</td>
+                <td *ngIf="eemail!.errors!['email']">Please put valid email id</td>
             </tr>
             <tr>
                 <td>Set password:</td>
-                <td><input type="password" formControlName="password"></td>
+                <td><input type="text" formControlName="password"></td>
             </tr>
             <tr *ngIf="epass?.touched && epass?.invalid">
                 <td></td>
                 <td *ngIf="epass!.errors!['required']">Password is required</td>
-               
+                <td *ngIf="epass!.errors!['pattern']">
+                    <b>Password should contain atleast one</b>
+                    <ol>
+                    <li>small letter</li>
+                    <li>capital letter</li>
+                    <li>digit</li>
+                    <li>Special Symbol ()</li>
+                    </ol>
+                    <b>Password should be 7 to 15 characters long</b>
+            </td>
             </tr>
             <tr>
                 <td>Confirm password:</td>
-                <td><input type="password" formControlName="confirmPassword" ></td>
+                <td><input type="text" formControlName="confirmPassword" ></td>
             </tr>
             <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid">
                 <td></td>
