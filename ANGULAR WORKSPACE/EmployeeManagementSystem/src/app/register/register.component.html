@@ -86,9 +86,9 @@
                 <td></td>
                 <td *ngIf="econfirmpass!.errors!['required']">Confirm password is required</td>
             </tr>
-            <tr *ngIf="econfirmpass?.touched && registerForm?.invalid">
+            <tr *ngIf="registerForm?.invalid && econfirmpass?.touched">
                 <td></td>
-                <td *ngIf="registerForm!.errors!['passMatch']">Confirm password must be same as password</td>
+                <td *ngIf="registerForm.hasError('passMatch')">Confirm password must be same as password</td>
             </tr>
             <tr>
                 <input type="submit" value="REGISTER"/>
