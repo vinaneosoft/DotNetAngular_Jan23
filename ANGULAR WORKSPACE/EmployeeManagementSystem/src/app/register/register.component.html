@@ -62,12 +62,12 @@
             </tr>
             <tr>
                 <td>Set password:</td>
-                <td><input type="text" formControlName="password"></td>
+                <td><input [type]="nodeType" formControlName="password"></td>
             </tr>
             <tr *ngIf="epass?.touched && epass?.invalid" class="errMsg">
                 <td></td>
                 <td *ngIf="epass!.errors!['required']">Password is required</td>
-                <td *ngIf="epass.hasError('pattern')">
+                <td *ngIf="epass!.errors!['pattern']">
                     <b>Password should contain atleast one</b>
                     <ol>
                     <li>small letter</li>
@@ -80,18 +80,22 @@
             </tr>
             <tr>
                 <td>Confirm password:</td>
-                <td><input type="text" formControlName="confirmPassword" [ngStyle]="{border:(registerForm.hasError('passMatch') ? 'red 2px solid':'')}"></td>
+                <td><input [type]="nodeType" formControlName="confirmPassword" [ngStyle]="{border:(registerForm.hasError('passMatch') ? 'red 2px solid':'')}"></td>
             </tr>
             <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid" class="errMsg">
                 <td></td>
-                <td *ngIf="econfirmpass.hasError('required')">Confirm password is required</td>
+                <td *ngIf="econfirmpass!.errors!['required']">Confirm password is required</td>
             </tr>
             <tr *ngIf="registerForm?.invalid && econfirmpass?.touched" class="errMsg">
                 <td></td>
                 <td *ngIf="registerForm.hasError('passMatch')">Confirm password must be same as password</td>
             </tr>
             <tr>
-                <input type="submit" [disabled]="registerForm?.invalid" value="REGISTER"/>
+                <td></td>
+                <td><input type="checkbox" (change)="showP($event)">:Show Password</td>
+            </tr>
+            <tr>
+                <input type="submit" [disabled]="registerForm.invalid" value="REGISTER"/>
                 <input type="reset" value="RESET"/>
             </tr>
         </table>       

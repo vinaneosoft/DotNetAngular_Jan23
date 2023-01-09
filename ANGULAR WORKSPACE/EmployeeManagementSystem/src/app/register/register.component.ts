@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../classes/employee';
 
 @Component({
@@ -61,18 +61,24 @@ export class RegisterComponent {
     this.employee=this.registerForm.value;
     console.log(this.employee);
   }
-  private passwordMatch(regForm:FormGroup):null | {}{   // special custom validator function
-    console.log("automatically called ");
+  private passwordMatch(regForm:AbstractControl)
+  {   // special custom validator function
+  
      let passNode=regForm.get('password');
      let cPassNode=regForm.get('confirmPassword');
-     console.log(passNode?.value);
-     console.log(cPassNode?.value);
+ 
       if(passNode?.value==cPassNode?.value)
         return null
-      
       else  
         return {'passMatch':true};
-    
+  }
+
+  nodeType="password";
+  showP(event:any):void{
+      if(event.target.checked)
+        this.nodeType="text";
+      else
+       this.nodeType="password";
   }
 }
 /*
