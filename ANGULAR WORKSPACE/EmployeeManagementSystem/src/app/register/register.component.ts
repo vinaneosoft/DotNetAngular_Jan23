@@ -80,6 +80,11 @@ export class RegisterComponent {
       else
        this.nodeType="password";
   }
+
+  myEmployee=new Employee(33,"Mahesh",67000,"male","abc","JW","abc@gmail.com","abc");
+  update(form:any){
+    console.log(this.myEmployee);
+  }
 }
 /*
   builtin validation method(form control object){
