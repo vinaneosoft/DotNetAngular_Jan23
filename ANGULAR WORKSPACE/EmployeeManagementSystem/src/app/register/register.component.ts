@@ -8,15 +8,18 @@ import { Employee } from '../classes/employee';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  
+  myEmployee=new Employee(33,"Mahesh",67000,"male","abc","JW","abc@gmail.com","abc");
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
   namePattern="^[A-Za-z ]*$";
   registerForm:FormGroup=new FormGroup({});
+  updateForm:FormGroup=new FormGroup({});
   employee=new Employee();
   constructor(){
     this.registerForm=new FormGroup({
-      empName:new FormControl("" , [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
-      empSalary:new FormControl("",[Validators.required, Validators.min(0)]),
+      empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
+      empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
       empGender:new FormControl(""),
       empAddress:new FormControl("",Validators.required),
       departmentId:new FormControl("",Validators.required),
@@ -26,6 +29,17 @@ export class RegisterComponent {
     }
     ,this.passwordMatch /* custom validator function registered on FormGroup object */
     );
+    this.updateForm=new FormGroup({
+      empName:new FormControl(this.myEmployee.empName, [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
+      empSalary:new FormControl(this.myEmployee.empSalary ,[Validators.required, Validators.min(0)]),
+      empGender:new FormControl(this.myEmployee.empGender),
+      empAddress:new FormControl(this.myEmployee.empAddress,Validators.required),
+      departmentId:new FormControl(this.myEmployee.departmentId,Validators.required),
+      emailId:new FormControl(this.myEmployee.emailId,[Validators.required, Validators.email ]),
+      password:new FormControl(this.myEmployee.password,[Validators.required, Validators.pattern(this.passPattern) ]), 
+    }
+    );
+    
   }
 
   get deptId(){
@@ -61,6 +75,10 @@ export class RegisterComponent {
     this.employee=this.registerForm.value;
     console.log(this.employee);
   }
+  updateF():void{
+    this.myEmployee=this.updateForm.value;
+    console.log(this.myEmployee);
+  }
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function
   
@@ -81,7 +99,6 @@ export class RegisterComponent {
        this.nodeType="password";
   }
 
-  myEmployee=new Employee(33,"Mahesh",67000,"male","abc","JW","abc@gmail.com","abc");
   update(form:any){
     console.log(this.myEmployee);
   }

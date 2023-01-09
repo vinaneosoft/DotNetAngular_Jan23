@@ -105,7 +105,7 @@
     </div>
     </form>
     <hr>
-    <form #regForm="ngForm" (submit)="update(regForm)">
+   <!--  <form #regForm="ngForm" (submit)="update(regForm)">
                 <table class="tblClass">
                     <tr><td><label>Name: </label></td>
                         <td><input type="text" name="empName" [(ngModel)]="myEmployee.empName"></td>
@@ -142,5 +142,68 @@
                         <input type="reset" value="RESET"/>
                     </tr>
                 </table>  
-    </form>
+    </form> -->
+    <hr>
+    <form [formGroup]="updateForm" (submit)="updateF()"> <!-- formGroup linked with form-->
+        <div>
+            <h1>Employee Update Form</h1>
+            <table class="tblClass">
+                <tr><td><label>Name: </label></td>
+                    <td><input type="text" formControlName="empName"></td>
+                </tr>
+                <tr *ngIf="ename?.touched && ename?.invalid" class="errMsg">
+                    <td></td>
+                    <td *ngIf="ename!.errors!['required']">Employee Name is required</td>
+                    <td *ngIf="ename!.errors!['minlength']">Please add min 2 characters</td>
+                    <td *ngIf="ename!.errors!['pattern']">only alphabets allowed</td>
+                </tr>
+    
+                <tr>
+                    <td><label>Salary:</label></td>
+                    <td><input type="number" formControlName="empSalary" ></td>
+                </tr>
+                <tr *ngIf="esalary?.touched && esalary?.invalid" class="errMsg">
+                    <td></td>
+                    <td *ngIf="esalary!.errors!['required']">Salary is required</td>
+                    <td *ngIf="esalary!.errors!['min']">-ve value not allowed</td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>Male: <input type="radio" value="male"  name="empGender"  formControlName="empGender" >
+                         Female: <input type="radio" value="female" name="empGender" formControlName="empGender"></td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><input type="text" formControlName="empAddress"></td>
+                </tr>
+                <tr *ngIf="eaddress?.touched && eaddress?.invalid" class="errMsg">
+                    <td></td>
+                    <td *ngIf="eaddress!.errors!['required']">Address is required</td>
+                   
+                </tr>
+                <tr>
+                    <td><label>Department:</label></td>
+                    <td>
+                    <select formControlName="departmentId" >
+                        <option value="LD">Learning and Developement</option>
+                        <option value="JW">Java Web</option>
+                        <option value="DN">Dot Net</option>
+                        <option value="HR">Human Resource</option>
+                    </select>
+                </td>
+                </tr>
+                <tr *ngIf="deptId?.touched &&deptId?.invalid" class="errMsg">
+                    <td></td>
+                    <td *ngIf="deptId!.errors!['required']">Please select department</td>
+                </tr>
+                <tr>
+                    <input type="submit"  value="REGISTER"/>
+                    <input type="reset" value="RESET"/>
+                </tr>
+            </table>       
+        </div>
+        <div>
+           existing User??<a routerLink="/login">click here to login</a>
+        </div>
+        </form>
 </section>
