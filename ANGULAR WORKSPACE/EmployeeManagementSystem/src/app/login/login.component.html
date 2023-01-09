@@ -1,21 +1,21 @@
 
 <H1>Login form</H1>
 <section>
-    <form method="post">
-    <div>
+    <form #loginForm="ngForm" (submit)="collectData(loginForm)">
         <table class="tblClass">
             <tr>
-                <td><label>User Name:</label></td><td><input type="email" id="UsNme"></td>
+                <td><label>User Name:</label></td>
+                <td><input type="email" name="emailId" ngModel required></td>
             </tr>
             <tr>
-                <td><label>Password:</label></td><td><input type="password" id="UsPass"></td>
+                <td><label>Password:</label></td>
+                <td><input type="password" name="password" ngModel required></td>
             </tr>
             <tr>
-                <input type="submit" value="Sign in">
+                <input type="submit" value="Sign-in">
                 <input type="reset" value="Reset">
             </tr>
         </table>  
-    </div>
     </form>
     <div>
         new User??<a routerLink="/register">click here to register</a>
