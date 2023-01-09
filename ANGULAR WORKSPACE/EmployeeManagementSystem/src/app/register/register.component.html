@@ -10,6 +10,7 @@
                 <td></td>
                 <td *ngIf="ename!.errors!['required']">Employee Name is required</td>
                 <td *ngIf="ename!.errors!['minlength']">Please add min 2 characters</td>
+                <td *ngIf="ename!.errors!['pattern']">only alphabets allowed</td>
             </tr>
 
             <tr>
@@ -84,7 +85,10 @@
             <tr *ngIf="econfirmpass?.touched && econfirmpass?.invalid">
                 <td></td>
                 <td *ngIf="econfirmpass!.errors!['required']">Confirm password is required</td>
-               
+            </tr>
+            <tr *ngIf="econfirmpass?.touched && registerForm?.invalid">
+                <td></td>
+                <td *ngIf="registerForm!.errors!['passMatch']">Confirm password must be same as password</td>
             </tr>
             <tr>
                 <input type="submit" value="REGISTER"/>
