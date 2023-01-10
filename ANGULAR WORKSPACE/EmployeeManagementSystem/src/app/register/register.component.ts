@@ -10,6 +10,7 @@ import { Employee } from '../classes/employee';
 export class RegisterComponent {
   
   myEmployee=new Employee(33,"Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
+  // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
   namePattern="^[A-Za-z ]*$";
@@ -74,10 +75,12 @@ export class RegisterComponent {
     console.log(this.registerForm.value);
     this.employee=this.registerForm.value;
     console.log(this.employee);
+    // later we pass the object as new data to save at backend
   }
   updateF():void{
     this.myEmployee=this.updateForm.value;
     console.log(this.myEmployee);
+    // later we pass this object to backend to save updated record at backend
   }
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function

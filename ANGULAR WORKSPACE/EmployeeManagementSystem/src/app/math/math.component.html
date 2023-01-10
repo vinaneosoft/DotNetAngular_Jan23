@@ -1,0 +1,14 @@
+<section>
+    <h3>Addition Form</h3>
+    <form #addForm="ngForm" (submit)="addNums(addForm)">
+        <label>Enter 1st Number:</label>
+        <input type="number" name="num1" ngModel><br>
+        <label>Enter 2nd Number:</label>
+        <input type="number" name="num2" ngModel><br>
+        <input type="submit" value="ADD">
+        <input type="reset" value="RESET">
+    </form>
+    <div>
+        <h4>Addition is: {{addResult}}</h4>
+    </div>
+</section>
