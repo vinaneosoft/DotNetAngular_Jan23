@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { MathComponent } from './math/math.component';
+import { OperationComponent } from './operation/operation.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MathComponent } from './math/math.component';
     HomeComponent,
     ViewNotFoundComponent,
     CompanyDetailsComponent,
-    MathComponent
+    MathComponent,
+    OperationComponent
   ],
   imports: [
     BrowserModule,
