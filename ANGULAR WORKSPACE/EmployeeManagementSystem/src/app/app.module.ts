@@ -20,6 +20,7 @@ import { ViewNotFoundComponent } from './view-not-found/view-not-found.component
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { MathComponent } from './math/math.component';
 import { OperationComponent } from './operation/operation.component';
+import { MathsService } from './myservices/maths.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { OperationComponent } from './operation/operation.component';
     BrowserModule,
     AppRoutingModule, FormsModule, OrderModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MathsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
