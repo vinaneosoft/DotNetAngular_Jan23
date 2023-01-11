@@ -15,6 +15,9 @@ export class EmployeeCRUDService {
         return this.httpService.post("http://localhost:3000/employees",emp); // json object
    }
 
+   getAllEmployees(){
+      return this.httpService.get("http://localhost:3000/employees");
+   }
 
 
 

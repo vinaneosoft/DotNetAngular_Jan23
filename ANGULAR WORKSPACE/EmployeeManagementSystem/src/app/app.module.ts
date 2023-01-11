@@ -22,6 +22,7 @@ import { MathComponent } from './math/math.component';
 import { OperationComponent } from './operation/operation.component';
 import { MathsService } from './myservices/maths.service';
 import {HttpClientModule} from '@angular/common/http';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {HttpClientModule} from '@angular/common/http';
     ViewNotFoundComponent,
     CompanyDetailsComponent,
     MathComponent,
-    OperationComponent
+    OperationComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

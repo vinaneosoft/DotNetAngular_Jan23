@@ -71,9 +71,9 @@ export class RegisterComponent {
   return this.registerForm.get('confirmPassword');
  }
   collectData():void{
-    this.employee=this.registerForm.value;
-    this.employee.generateId();
-    console.log(this.employee.id);
+    this.employee=this.registerForm.value; // id is not taken from form
+   // this.employee.generateId();
+   // console.log(this.employee.id);
     
     console.log("......data posted....");
     this.empCrud.addEmployee(this.employee).subscribe({
