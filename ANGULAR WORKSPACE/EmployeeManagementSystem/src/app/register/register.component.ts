@@ -10,7 +10,7 @@ import { EmployeeCRUDService } from '../myservices/employee-crud.service';
 })
 export class RegisterComponent {
   joinsuccessMessage="";
-  myEmployee=new Employee("345","Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
+  myEmployee=new Employee(345,"Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
   // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";

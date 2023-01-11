@@ -1,1 +1,22 @@
-<p>employee-details works!</p>
+<section>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th> <th>Name</th> <th>Salary</th><th>Department Id</th> 
+                <th>Gender</th> <th>Address</th><th>EmailId</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of empArray">
+                <td>{{employee.id}}</td>
+                <td>{{employee.empName}}</td>
+                <td>{{employee.empSalary}}</td>
+                <td>{{employee.departmentId}}</td>
+                <td>{{employee.empGender}}</td>
+                <td>{{employee.empAddress}}</td>
+                <td>{{employee.emailId}}</td>
+                <td><button (click)="pass(employee.id)">DELETE</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
