@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 export class RegisterComponent implements OnInit {
   joinsuccessMessage="";
   myEmployee=new Employee();
-  // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
   namePattern="^[A-Za-z ]*$";
@@ -31,17 +30,17 @@ export class RegisterComponent implements OnInit {
     }
     ,this.passwordMatch /* custom validator function registered on FormGroup object */
     );
+    
     this.updateForm=new FormGroup({
-      empName:new FormControl(this.myEmployee.empName, [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
-      empSalary:new FormControl(this.myEmployee.empSalary ,[Validators.required, Validators.min(0)]),
-      empGender:new FormControl(this.myEmployee.empGender),
-      empAddress:new FormControl(this.myEmployee.empAddress,Validators.required),
-      departmentId:new FormControl(this.myEmployee.departmentId,Validators.required),
-      emailId:new FormControl(this.myEmployee.emailId,[Validators.required, Validators.email ]),
-      password:new FormControl(this.myEmployee.password,[Validators.required, Validators.pattern(this.passPattern) ]), 
+      empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
+      empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
+      empGender:new FormControl(),
+      empAddress:new FormControl("",Validators.required),
+      departmentId:new FormControl("",Validators.required),
+      emailId:new FormControl("",[Validators.required, Validators.email ]),
+      password:new FormControl("",[Validators.required, Validators.pattern(this.passPattern) ]), 
     }
     );
-    
   }
   ngOnInit(): void {
     let eid=0;
@@ -51,17 +50,11 @@ export class RegisterComponent implements OnInit {
       eid=parseInt(empId);
     this.empCrud.getEmployeeById(eid).subscribe(
       {
-        next:successres=>{
-          console.log(successres);
-          this.myEmployee=successres as Employee
-        },
+        next:successres=>this.myEmployee=successres as Employee,
         error:errorres=>console.log(errorres)
       }
     );
-
   }
-
-
 
   get deptId(){
     return this.registerForm.get('departmentId');
@@ -105,8 +98,6 @@ export class RegisterComponent implements OnInit {
   }
   updateF():void{
     this.myEmployee=this.updateForm.value;
-   
-  
   }
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function
@@ -119,7 +110,6 @@ export class RegisterComponent implements OnInit {
       else  
         return {'passMatch':true};
   }
-
   nodeType="password";
   showP(event:any):void{
       if(event.target.checked)
@@ -127,25 +117,8 @@ export class RegisterComponent implements OnInit {
       else
        this.nodeType="password";
   }
-
   update(form:any){
     console.log(this.myEmployee);
   }
 }
-/*
-  builtin validation method(form control object){
-      if value==""
-      return {'required':true}
-      else 
-        null
-  }
 
-    builtin validation method(form control object){
-      if length<.....
-      return {'minlength':true}
-      else 
-        null
-  }
-
-
-*/
