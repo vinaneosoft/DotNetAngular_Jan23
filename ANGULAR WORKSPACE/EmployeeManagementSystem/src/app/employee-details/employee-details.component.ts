@@ -8,16 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-
   empArray:Employee[]=[];
   constructor(private empCrud:EmployeeCRUDService, private router:Router){
-
   }
   ngOnInit(): void {
-    // this method gets auto called
     this.getRecords();
   }
-
   pass(id:number){
     this.empCrud.deleteEmployee(id).subscribe(
       {
@@ -27,7 +23,6 @@ export class EmployeeDetailsComponent implements OnInit {
     );
      this.getRecords(); 
   }
-
   getRecords(){
     this.empCrud.getAllEmployees().subscribe(
       {

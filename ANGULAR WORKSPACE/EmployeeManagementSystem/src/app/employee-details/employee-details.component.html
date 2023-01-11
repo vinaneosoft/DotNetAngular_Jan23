@@ -16,6 +16,7 @@
                 <td>{{employee.empAddress}}</td>
                 <td>{{employee.emailId}}</td>
                 <td><button (click)="pass(employee.id)">DELETE</button></td>
+                <td><a [routerLink]="['/register',employee.id]">EDIT</a></td>
             </tr>
         </tbody>
     </table>

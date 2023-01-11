@@ -16,6 +16,9 @@ export class EmployeeCRUDService {
    getAllEmployees(){
       return this.httpService.get("http://localhost:3000/employees");
    }
+   getEmployeeById(eid:number){
+      return this.httpService.get(`http://localhost:3000/employees/${eid}`);
+   }
    deleteEmployee(eid:number){
       return this.httpService.delete(`http://localhost:3000/employees/${eid}`);
    }

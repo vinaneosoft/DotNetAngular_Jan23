@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../classes/employee';
 import { EmployeeCRUDService } from '../myservices/employee-crud.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   joinsuccessMessage="";
-  myEmployee=new Employee(345,"Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
+  myEmployee=new Employee();
   // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
@@ -18,7 +18,7 @@ export class RegisterComponent {
   registerForm:FormGroup=new FormGroup({});
   updateForm:FormGroup=new FormGroup({});
   employee=new Employee();
-  constructor(private empCrud:EmployeeCRUDService){
+  constructor(private empCrud:EmployeeCRUDService, private activeRoute:ActivatedRoute){
     this.registerForm=new FormGroup({
       empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
@@ -43,6 +43,25 @@ export class RegisterComponent {
     );
     
   }
+  ngOnInit(): void {
+    let eid=0;
+    let empId=this.activeRoute.snapshot.paramMap.get('eid');
+    console.log(empId);
+    if(empId!=null)
+      eid=parseInt(empId);
+    this.empCrud.getEmployeeById(eid).subscribe(
+      {
+        next:successres=>{
+          console.log(successres);
+          this.myEmployee=successres as Employee
+        },
+        error:errorres=>console.log(errorres)
+      }
+    );
+
+  }
+
+
 
   get deptId(){
     return this.registerForm.get('departmentId');

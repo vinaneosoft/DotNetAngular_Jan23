@@ -16,7 +16,8 @@ const routes: Routes = [
 },
 { path:'departments', component:DepartmentComponent },
 { path:'login', component:LoginComponent },
-{ path:'register', component:RegisterComponent },
+{ path:'register', component:RegisterComponent},
+{ path:'register/:eid', component:RegisterComponent },
 {path:'employees', component:EmployeeDetailsComponent},
 {path:'', component:HomeComponent},
 {path:'**', component: ViewNotFoundComponent}
