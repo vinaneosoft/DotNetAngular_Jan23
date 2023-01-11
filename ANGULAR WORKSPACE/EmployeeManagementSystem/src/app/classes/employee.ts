@@ -1,5 +1,5 @@
 export class Employee {
-    empId:number;
+    id:number;
     empName:string;
     empSalary:number;
     empGender:string;
@@ -12,7 +12,7 @@ export class Employee {
         this.departmentId=did;
         this.empAddress=address;
         this.empGender=gender;
-        this.empId=id;
+        this.id=id;
         this.empName=name;
         this.empSalary=salary;
         this.emailId=eid;

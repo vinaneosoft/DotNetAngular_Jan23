@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../classes/employee';
+import { EmployeeCRUDService } from '../myservices/employee-crud.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent {
   registerForm:FormGroup=new FormGroup({});
   updateForm:FormGroup=new FormGroup({});
   employee=new Employee();
-  constructor(){
+  constructor(private empCrud:EmployeeCRUDService){
     this.registerForm=new FormGroup({
       empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
@@ -72,15 +73,19 @@ export class RegisterComponent {
 
 
   collectData():void{
-    console.log(this.registerForm.value);
     this.employee=this.registerForm.value;
+    console.log("...data from form....");
     console.log(this.employee);
-    // later we pass the object as new data to save at backend
+    console.log("......data posted....");
+    this.empCrud.addEmployee(this.employee).subscribe({
+      next:successres=>console.log(successres),
+      error:errorres=>console.log(errorres)
+    });
   }
   updateF():void{
     this.myEmployee=this.updateForm.value;
-    console.log(this.myEmployee);
-    // later we pass this object to backend to save updated record at backend
+   
+  
   }
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function
