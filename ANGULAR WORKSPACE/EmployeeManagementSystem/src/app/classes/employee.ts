@@ -1,5 +1,5 @@
 export class Employee {
-    id:number;
+    id:string;
     empName:string;
     empSalary:number;
     empGender:string;
@@ -7,8 +7,8 @@ export class Employee {
     departmentId:string;
     emailId:string;
     password:string
-
-    constructor(id=0,name="",salary=0,gender="f",address="",did="",eid="",pass=""){
+    static empCode=1;
+    constructor(id="",name="",salary=0,gender="f",address="",did="",eid="",pass=""){
         this.departmentId=did;
         this.empAddress=address;
         this.empGender=gender;
@@ -17,5 +17,8 @@ export class Employee {
         this.empSalary=salary;
         this.emailId=eid;
         this.password=pass;
+    }
+    generateId():void{
+         this.id="NS"+Employee.empCode++;
     }
 }

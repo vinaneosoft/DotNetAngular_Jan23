@@ -10,7 +10,7 @@ import { EmployeeCRUDService } from '../myservices/employee-crud.service';
 })
 export class RegisterComponent {
   joinsuccessMessage="";
-  myEmployee=new Employee(33,"Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
+  myEmployee=new Employee("345","Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
   // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
   passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{7,15}$";
@@ -72,12 +72,14 @@ export class RegisterComponent {
  }
   collectData():void{
     this.employee=this.registerForm.value;
-   
+    this.employee.generateId();
+    console.log(this.employee.id);
+    
     console.log("......data posted....");
     this.empCrud.addEmployee(this.employee).subscribe({
       next:successres=>{
         console.log(successres);
-        this.joinsuccessMessage=`Hello ${this.employee.empName}, your joining is DONE!!!!!!`
+        this.joinsuccessMessage=`Hello ${(successres as Employee).empName}, your joining is DONE!!!!!!`
       },
       error:errorres=>console.log(errorres)
     });
