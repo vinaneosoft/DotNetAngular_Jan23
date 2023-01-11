@@ -12,7 +12,7 @@ export class EmployeeCRUDService {
    }
 
    addEmployee(emp:Employee){
-        return this.httpService.post("http://localhost:3000/employees",emp);
+        return this.httpService.post("http://localhost:3000/employees",emp); // json object
    }
 
 

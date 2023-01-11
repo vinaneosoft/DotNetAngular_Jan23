@@ -9,7 +9,7 @@ import { EmployeeCRUDService } from '../myservices/employee-crud.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  
+  joinsuccessMessage="";
   myEmployee=new Employee(33,"Mahesh",67000,"male","Airoli","JW","abc@gmail.com","abc");
   // later, object to display / update, we will take from backend
   myBorder="green 2px solid";
@@ -70,15 +70,15 @@ export class RegisterComponent {
  get econfirmpass(){
   return this.registerForm.get('confirmPassword');
  }
-
-
   collectData():void{
     this.employee=this.registerForm.value;
-    console.log("...data from form....");
-    console.log(this.employee);
+   
     console.log("......data posted....");
     this.empCrud.addEmployee(this.employee).subscribe({
-      next:successres=>console.log(successres),
+      next:successres=>{
+        console.log(successres);
+        this.joinsuccessMessage=`Hello ${this.employee.empName}, your joining is DONE!!!!!!`
+      },
       error:errorres=>console.log(errorres)
     });
   }

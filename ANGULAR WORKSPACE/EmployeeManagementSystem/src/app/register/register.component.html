@@ -1,6 +1,7 @@
 <section>
     <form [formGroup]="registerForm" (submit)="collectData()"> <!-- formGroup linked with form-->
     <div>
+        <i>{{joinsuccessMessage}}</i>
         <h1>Employee Joining Form</h1>
         <table class="tblClass">
             <tr><td><label>Name: </label></td>
