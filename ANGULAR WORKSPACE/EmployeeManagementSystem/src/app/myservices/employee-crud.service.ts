@@ -17,8 +17,6 @@ export class EmployeeCRUDService {
       return this.httpService.get("http://localhost:3000/employees");
    }
    deleteEmployee(eid:number){
-      console.log(eid);
-      
       return this.httpService.delete(`http://localhost:3000/employees/${eid}`);
    }
 }

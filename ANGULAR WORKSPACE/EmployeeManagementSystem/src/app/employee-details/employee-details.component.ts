@@ -15,12 +15,7 @@ export class EmployeeDetailsComponent implements OnInit {
   }
   ngOnInit(): void {
     // this method gets auto called
-    this.empCrud.getAllEmployees().subscribe(
-      {
-        next:successres=>this.empArray=successres as Employee[],
-        error:errorres=>console.log(errorres)  
-      }
-    );
+    this.getRecords();
   }
 
   pass(id:number){
@@ -30,7 +25,15 @@ export class EmployeeDetailsComponent implements OnInit {
         error:errorres=>console.log(errorres)  
       }
     );
-      
+     this.getRecords(); 
   }
 
+  getRecords(){
+    this.empCrud.getAllEmployees().subscribe(
+      {
+        next:successres=>this.empArray=successres as Employee[],
+        error:errorres=>console.log(errorres)  
+      }
+    );
+  }
 }
