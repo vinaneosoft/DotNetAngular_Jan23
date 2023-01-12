@@ -10,6 +10,7 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  routeParameter:string | null="";
   joinsuccessMessage="";
   myEmployee=new Employee();
   myBorder="green 2px solid";
@@ -45,10 +46,9 @@ export class RegisterComponent implements OnInit {
   }
   ngOnInit(): void {
     let eid=0;
-    let empId=this.activeRoute.snapshot.paramMap.get('eid');
-    console.log(empId);
-    if(empId!=null)
-      eid=parseInt(empId);
+    this.routeParameter=this.activeRoute.snapshot.paramMap.get('eid');
+    if(this.routeParameter!=null)
+      eid=parseInt(this.routeParameter);
     this.empCrud.getEmployeeById(eid).subscribe(
       {
         next:successres=>this.myEmployee=successres as Employee,
