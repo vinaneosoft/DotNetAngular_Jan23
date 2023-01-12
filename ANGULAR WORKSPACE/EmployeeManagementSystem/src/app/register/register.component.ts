@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
       empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
       empGender:new FormControl(),
-      empAddress:new FormControl("",Validators.required),
+      empAddress:new FormControl(this.myEmployee.empAddress,Validators.required),
       departmentId:new FormControl("",Validators.required),
-      emailId:new FormControl("",[Validators.required, Validators.email ]),
-      password:new FormControl("",[Validators.required, Validators.pattern(this.passPattern) ]), 
+      emailId:new FormControl(""),
+      password:new FormControl(""), 
     }
     );
   }
@@ -97,7 +97,14 @@ export class RegisterComponent implements OnInit {
     });
   }
   updateF():void{
-    this.myEmployee=this.updateForm.value;
+    this.myEmployee.empName=this.updateForm.get('empName')?.value;
+    this.myEmployee.empSalary=this.updateForm.get('empSalary')?.value;
+    this.myEmployee.empGender=this.updateForm.get('empGender')?.value;
+    this.myEmployee.empAddress=this.updateForm.get('empAddress')?.value;
+    this.myEmployee.emailId=this.updateForm.get('emailId')?.value;
+    this.myEmployee.password=this.updateForm.get('password')?.value;
+    console.log(this.myEmployee);
+    
   }
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function
@@ -117,8 +124,9 @@ export class RegisterComponent implements OnInit {
       else
        this.nodeType="password";
   }
-  update(form:any){
+  update(){
     console.log(this.myEmployee);
+    //we will pass updated values to backend
   }
 }
 

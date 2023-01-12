@@ -106,7 +106,8 @@
     </div>
     </form>
     <hr>
- <!-- <form #regForm="ngForm" (submit)="update(regForm)">
+    <h2>Template Driven Form</h2>
+ <form #regForm="ngForm" (submit)="update()">
                 <table class="tblClass">
                     <tr><td><label>Name: </label></td>
                         <td><input type="text" name="empName" [(ngModel)]="myEmployee.empName"></td>
@@ -119,12 +120,12 @@
                     
                     <tr>
                         <td><label>Gender:</label></td>
-                        <td>Male: <input type="radio" value="male"  name="empGender"  >
-                             Female: <input type="radio" value="female" name="empGender"></td>
+                        <td>Male: <input type="radio" value="male" [(ngModel)]="myEmployee.empGender"  name="empGender"  >
+                             Female: <input type="radio" value="female" [(ngModel)]="myEmployee.empGender" name="empGender"></td>
                     </tr>
                     <tr>
                         <td><label>Address:</label></td>
-                        <td><input type="text" ></td>
+                        <td><input type="text" name="empAddress" [(ngModel)]="myEmployee.empAddress"></td>
                     </tr>
                    
                     <tr>
@@ -139,16 +140,19 @@
                     </td>
                     </tr>
                     <tr>
-                        <input type="submit" value="REGISTER"/>
+                        <input type="submit" value="UPDATE"/>
                         <input type="reset" value="RESET"/>
                     </tr>
                 </table>  
-    </form> -->
+    </form>
     <hr>
-    <form [formGroup]="updateForm" (submit)="updateF()"> <!-- formGroup linked with form-->
+    <!-- <form [formGroup]="updateForm" (submit)="updateF()">
         <div>
             <h1>Employee Update Form</h1>
             <table class="tblClass">
+                <tr><td><label>Id: </label></td>
+                    <td><input type="text" [value]="myEmployee.id" readonly></td>
+                </tr>
                 <tr><td><label>Name: </label></td>
                     <td><input type="text" formControlName="empName" [value]="myEmployee.empName"></td>
                 </tr>
@@ -175,7 +179,7 @@
                 </tr>
                 <tr>
                     <td><label>Address:</label></td>
-                    <td><input type="text" formControlName="empAddress" [value]="myEmployee.empAddress"></td>
+                    <td><input type="text" [formControlName]="myEmployee.empAddress" [value]="myEmployee.empAddress"></td>
                 </tr>
                 <tr *ngIf="eaddress?.touched && eaddress?.invalid" class="errMsg">
                     <td></td>
@@ -198,13 +202,24 @@
                     <td *ngIf="deptId!.errors!['required']">Please select department</td>
                 </tr>
                 <tr>
+                    <td>Email Id:</td>
+                    <td><input type="email" formControlName="emailId" [value]="myEmployee.emailId" ></td>
+                </tr>
+               
+                <tr>
+                    <td>Set password:</td>
+                    <td><input type="passsword" formControlName="password" [value]="myEmployee.password" ></td>
+                </tr>
+
+
+                <tr>
                     <input type="submit"  value="UPDATE"/>
                     <input type="reset" value="RESET"/>
                 </tr>
             </table>       
         </div>
        
-        </form>
+        </form> -->
 </section>
 <section>
     <h3>Employee Searched</h3>
