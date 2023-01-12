@@ -22,4 +22,7 @@ export class EmployeeCRUDService {
    deleteEmployee(eid:number){
       return this.httpService.delete(`http://localhost:3000/employees/${eid}`);
    }
+   updateEmployee(emp:Employee){
+         return this.httpService.put(`http://localhost:3000/employees/${emp.id}`,emp);
+   }
 }

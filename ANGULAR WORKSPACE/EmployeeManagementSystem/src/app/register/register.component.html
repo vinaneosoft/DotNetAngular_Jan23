@@ -107,7 +107,7 @@
     </form>
     <hr>
     <h2>Template Driven Form</h2>
- <form #regForm="ngForm" (submit)="update()">
+ <form #regForm="ngForm" (submit)="collecUpdatedData()">
                 <table class="tblClass">
                     <tr><td><label>Name: </label></td>
                         <td><input type="text" name="empName" [(ngModel)]="myEmployee.empName"></td>

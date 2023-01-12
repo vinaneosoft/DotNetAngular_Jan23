@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../classes/employee';
 import { EmployeeCRUDService } from '../myservices/employee-crud.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup=new FormGroup({});
   updateForm:FormGroup=new FormGroup({});
   employee=new Employee();
-  constructor(private empCrud:EmployeeCRUDService, private activeRoute:ActivatedRoute){
+  constructor(private empCrud:EmployeeCRUDService, private activeRoute:ActivatedRoute, private router:Router){
     this.registerForm=new FormGroup({
       empName:new FormControl("", [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       empSalary:new FormControl("" ,[Validators.required, Validators.min(0)]),
@@ -84,9 +85,6 @@ export class RegisterComponent implements OnInit {
  }
   collectData():void{
     this.employee=this.registerForm.value; // id is not taken from form
-   // this.employee.generateId();
-   // console.log(this.employee.id);
-    
     console.log("......data posted....");
     this.empCrud.addEmployee(this.employee).subscribe({
       next:successres=>{
@@ -96,16 +94,7 @@ export class RegisterComponent implements OnInit {
       error:errorres=>console.log(errorres)
     });
   }
-  updateF():void{
-    this.myEmployee.empName=this.updateForm.get('empName')?.value;
-    this.myEmployee.empSalary=this.updateForm.get('empSalary')?.value;
-    this.myEmployee.empGender=this.updateForm.get('empGender')?.value;
-    this.myEmployee.empAddress=this.updateForm.get('empAddress')?.value;
-    this.myEmployee.emailId=this.updateForm.get('emailId')?.value;
-    this.myEmployee.password=this.updateForm.get('password')?.value;
-    console.log(this.myEmployee);
-    
-  }
+ 
   private passwordMatch(regForm:AbstractControl)
   {   // special custom validator function
   
@@ -124,9 +113,17 @@ export class RegisterComponent implements OnInit {
       else
        this.nodeType="password";
   }
-  update(){
-    console.log(this.myEmployee);
+  collecUpdatedData(){
+    console.log(this.myEmployee); // updated object
     //we will pass updated values to backend
+    this.empCrud.updateEmployee(this.myEmployee).subscribe({
+      next:successres=>console.log(successres),
+      error:errorres=>console.log(errorres)
+    });
+
+    this.router.navigate(['/employees']);
   }
+
+  
 }
 

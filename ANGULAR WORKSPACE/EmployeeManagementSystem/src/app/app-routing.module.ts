@@ -19,9 +19,9 @@ const routes: Routes = [
 { path:'register', component:RegisterComponent},
 { path:'register/:eid', component:RegisterComponent },
 {path:'employees', component:EmployeeDetailsComponent},
+
 {path:'', component:HomeComponent},
 {path:'**', component: ViewNotFoundComponent}
-
 ];
 
 @NgModule({
