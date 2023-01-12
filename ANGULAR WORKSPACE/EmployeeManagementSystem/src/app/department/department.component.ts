@@ -22,6 +22,9 @@ myStyle={
  
  deptArray=new Array<Department>();
  deparment=new Department("LD","Learning and Development",100000,2015, "https://picsum.photos/id/560/200/300", new Date('23 Nov 2015'));
+
+ displayedColumns=['deptId', 'deptBudget','deptName','deptEstYear']
+
  constructor(){
   this.deptArray=[
     new Department("LD","learning and Research",100000.56478,2015, "https://picsum.photos/id/560/200/300", new Date('23 Nov 2015')),

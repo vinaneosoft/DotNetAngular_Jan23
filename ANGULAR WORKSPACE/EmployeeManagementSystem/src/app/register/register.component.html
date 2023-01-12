@@ -94,6 +94,7 @@
             <tr>
                 <td></td>
                 <td><input type="checkbox" (change)="showP($event)">:Show Password</td>
+                <td><mat-checkbox (change)="showP($event)"></mat-checkbox>: Show Password</td>
             </tr>
             <tr>
                 <input type="submit" [disabled]="registerForm.invalid" value="REGISTER"/>

@@ -23,7 +23,12 @@ import { OperationComponent } from './operation/operation.component';
 import { MathsService } from './myservices/maths.service';
 import {HttpClientModule} from '@angular/common/http';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,9 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, OrderModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, MatSlideToggleModule,MatButtonModule, MatIconModule
+    , MatCheckboxModule, MatTableModule
   ],
   providers: [MathsService],
   bootstrap: [AppComponent]
