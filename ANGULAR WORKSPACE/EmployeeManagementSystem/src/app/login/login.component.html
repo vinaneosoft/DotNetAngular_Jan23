@@ -1,6 +1,7 @@
 
 <H1>Login form</H1>
 <section>
+    <b>{{loginMessage}}</b>
     <form #loginForm="ngForm" (submit)="collectData(loginForm)">
         <table class="tblClass">
             <tr>
@@ -9,7 +10,7 @@
             </tr>
             <tr>
                 <td><label>Password:</label></td>
-                <td><input type="password" name="password" ngModel required></td>
+                <td><input type="text" name="password" ngModel required></td>
             </tr>
             <tr>
                 <input type="submit" value="Sign-in">
