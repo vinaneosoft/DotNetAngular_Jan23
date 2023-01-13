@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output,OnInit, AfterContentInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output,OnInit, AfterContentInit, OnChanges } from '@angular/core';
 import { Department } from '../classes/department';
 
 @Component({
@@ -6,7 +6,7 @@ import { Department } from '../classes/department';
   templateUrl: './dept-container.component.html',
   styleUrls: ['./dept-container.component.css']
 })
-export class DeptContainerComponent implements OnInit, AfterContentInit {
+export class DeptContainerComponent implements OnInit,OnChanges {
   @Input()   // input data is comping from parent side
   department:Department;
 
@@ -30,13 +30,12 @@ export class DeptContainerComponent implements OnInit, AfterContentInit {
       deptEstDate:new Date()
     }
   }
-  ngAfterContentInit(): void {
-    
+  ngOnInit(): void {
     this.emitter.emit(this.subHeading);
     this.emitter2.emit(this.year);
   }
-  // 1st lifecycle
-  ngOnInit(): void {
-   
-  }
+ ngOnChanges(changes:any){
+  console.log(changes);
+  console.log("change method called");
+ }
 }

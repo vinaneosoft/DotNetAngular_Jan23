@@ -30,8 +30,9 @@ myStyle={
     new Department("LD","learning and Research",100000.56478,2015, "https://picsum.photos/id/560/200/300", new Date('23 Nov 2015')),
     new Department("JW","Java web",400000.5467,2000,  "https://picsum.photos/id/564/200/300",new Date('13 Aug 2000')),
     new Department("DN","Dot-nEt",500000.7675436,2000,  "https://picsum.photos/id/562/200/300",new Date('22 Aug 2000')),
+    new Department("HR","human Resource",500000.5,2001,  "https://picsum.photos/id/564/200/300",new Date('22 Aug 2001')),
     new Department("HR","human Resource",500000.5,2001,  "https://picsum.photos/id/564/200/300",new Date('22 Aug 2001'))
-  ];
+   ];
  setTimeout(()=>this.deparment.deptName="Design Department", 6000);
  let interval1=setInterval(()=>{
   this.changeBorderColor()
