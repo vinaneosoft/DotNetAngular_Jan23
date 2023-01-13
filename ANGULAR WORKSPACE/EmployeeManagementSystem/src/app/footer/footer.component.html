@@ -1,7 +1,9 @@
 
 <footer class="myFooter">
-  <h3>Our Company</h3> 
-  <h3>Services</h3>
-  <h3>Brands</h3>
-  <h3>Resources</h3>
+
+  <h3>Global Presences</h3>
+  <ol> <li *ngFor="let prsence of globalPresence">{{prsence}}</li></ol>
+  Parent changing location: <input type="text" [(ngModel)]="myLocation">
+  <hr>
+  <app-footersection [globalArray]="globalPresence" [locFromParent]="myLocation"></app-footersection>
 </footer>

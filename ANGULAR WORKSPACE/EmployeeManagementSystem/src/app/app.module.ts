@@ -27,6 +27,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
+import { FootersectionComponent } from './footersection/footersection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import {MatTableModule} from '@angular/material/table';
     CompanyDetailsComponent,
     MathComponent,
     OperationComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    FootersectionComponent
   ],
   imports: [
     BrowserModule,

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  myLocation="INDIA";
+  globalPresence=['india', 'asia pacific', 'middle east'];
 }
