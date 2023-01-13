@@ -20,7 +20,7 @@ export class DeptContainerComponent implements OnInit,OnChanges {
   emitter2=new EventEmitter<number>();
 
   constructor(){
-    console.log("called automatically");  
+    console.log("called automatically");  //1
     this.department={
       deptId:"",
       deptBudget:0,
@@ -31,11 +31,15 @@ export class DeptContainerComponent implements OnInit,OnChanges {
     }
   }
   ngOnInit(): void {
+    console.log("called only once");
+    // if component gets reloaded then method gets called again but once
     this.emitter.emit(this.subHeading);
     this.emitter2.emit(this.year);
   }
  ngOnChanges(changes:any){
+  // 5 times
+  console.log("called every time when input(from parent) value changes");
   console.log(changes);
-  console.log("change method called");
+ 
  }
 }

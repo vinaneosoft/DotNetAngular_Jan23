@@ -55,6 +55,7 @@
 <h4>{{eyear}}</h4>
 <article class="flexContainer">
     <div *ngFor="let dept of deptArray">
+        <!-- 5 department objects, 5 times child gettting loaded-->
          <app-dept-container [department]=dept  (emitter)="acceptData($event)" (emitter2)="acceptData2($event)"></app-dept-container>
     </div>
 </article>
