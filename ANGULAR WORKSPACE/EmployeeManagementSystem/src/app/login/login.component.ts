@@ -15,16 +15,16 @@ export class LoginComponent {
 
   }
     collectData(logForm:any){
-    console.log(logForm.value.emailId);
-    console.log(logForm.value.password);
+      let username=logForm.value.emailId;
+      let password=logForm.value.password;
     this.empCrud.getAllEmployees().subscribe({
         next:successres=>{
           this.empArray=successres as Employee[];
-          this.logService.loginCheck(this.empArray,logForm.value.emailId,logForm.value.password);
+          this.logService.loginCheck(this.empArray,username,password);
           if(this.logService.loggedIn)
             this.loginMessage="You are logged in Successfully...";
           else 
-            this.loginMessage="Incorrect Username of password";
+            this.loginMessage="Incorrect Username or password";
         },
         error:errorres=>console.log(errorres)
     });
