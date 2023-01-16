@@ -28,34 +28,41 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
 import { FootersectionComponent } from './footersection/footersection.component';
+import { AuthServiceService } from './myservices/auth-service.service';
+import { EmployeeCRUDService } from './myservices/employee-crud.service';
+import { LoginCheckService } from './myservices/login-check.service';
+import { TestComponent } from './test/test.component';
+import { EmployeehrModule } from "./employeehr/employeehr.module";
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavbarComponent,
-    DepartmentComponent,
-    DeptContainerComponent,
-    PrefixPipe,
-    SuffixPipe,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    ViewNotFoundComponent,
-    CompanyDetailsComponent,
-    MathComponent,
-    OperationComponent,
-    EmployeeDetailsComponent,
-    FootersectionComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, FormsModule, OrderModule, ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule, MatSlideToggleModule,MatButtonModule, MatIconModule
-    , MatCheckboxModule, MatTableModule
-  ],
-  providers: [MathsService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        NavbarComponent,
+        DepartmentComponent,
+        DeptContainerComponent,
+        PrefixPipe,
+        SuffixPipe,
+        LoginComponent,
+        RegisterComponent,
+        HomeComponent,
+        ViewNotFoundComponent,
+        CompanyDetailsComponent,
+        MathComponent,
+        OperationComponent,
+        EmployeeDetailsComponent,
+        FootersectionComponent,
+        TestComponent
+    ],
+    providers: [MathsService, AuthServiceService, EmployeeCRUDService, LoginCheckService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule, FormsModule, OrderModule, ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatIconModule,
+        MatCheckboxModule, MatTableModule,
+        EmployeehrModule
+    ]
 })
 export class AppModule { }
