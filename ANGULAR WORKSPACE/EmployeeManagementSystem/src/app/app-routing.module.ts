@@ -10,19 +10,12 @@ import { RegisterComponent } from './register/register.component';
 import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
 
 const routes: Routes = [
-{ path:'home',   component:HomeComponent, 
-  children:[
-    {  path:'companydetails', component:CompanyDetailsComponent}
-  ]      
-},
-{ path:'departments', component:DepartmentComponent },
+{ path:'home',   component:HomeComponent },
 { path:'login', component:LoginComponent },
 { path:'register', component:RegisterComponent},
-{ path:'register/:eid', component:RegisterComponent },
-{path:'employees', component:EmployeeDetailsComponent, canActivate:[AuthServiceService] },
-
-{path:'', component:HomeComponent},
-{path:'**', component: ViewNotFoundComponent}
+{ path:'employees', component:EmployeeDetailsComponent, /* canActivate:[AuthServiceService]  */},
+{ path:'', redirectTo:'home', pathMatch:'full'},
+{ path:'**', component: ViewNotFoundComponent}
 ];
 
 @NgModule({

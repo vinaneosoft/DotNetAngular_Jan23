@@ -5,12 +5,12 @@
     <form #loginForm="ngForm" (submit)="collectData(loginForm)">
         <table class="tblClass">
             <tr>
-                <td><label>User Name:</label></td>
-                <td><input type="email" name="emailId" ngModel required></td>
+                <td><label for="emailId">Email Id:</label></td>
+                <td><input type="email" id="emailId" name="emailId" ngModel required></td>
             </tr>
             <tr>
-                <td><label>Password:</label></td>
-                <td><input type="password" name="password" ngModel required></td>
+                <td><label for="password" >Password:</label></td>
+                <td><input type="password" id="password" name="password" ngModel required></td>
             </tr>
             <tr>
                 <input type="submit" value="Sign-in">

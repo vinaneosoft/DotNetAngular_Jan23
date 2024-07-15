@@ -19,7 +19,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { MathComponent } from './math/math.component';
 import { OperationComponent } from './operation/operation.component';
 import { MathsService } from './myservices/maths.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
@@ -33,6 +33,8 @@ import { EmployeeCRUDService } from './myservices/employee-crud.service';
 import { LoginCheckService } from './myservices/login-check.service';
 import { TestComponent } from './test/test.component';
 import { EmployeehrModule } from "./employeehr/employeehr.module";
+import { Incterceptor1Service } from './myservices/incterceptor1.service';
+import { Interceptor2Service } from './myservices/interceptor2.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -54,7 +56,19 @@ import { EmployeehrModule } from "./employeehr/employeehr.module";
         FootersectionComponent,
         TestComponent
     ],
-    providers: [MathsService, AuthServiceService, EmployeeCRUDService, LoginCheckService],
+    providers: [MathsService, AuthServiceService, EmployeeCRUDService, 
+        LoginCheckService,
+        {
+            provide:HTTP_INTERCEPTORS,
+            useClass:Incterceptor1Service,
+            multi:true
+        },
+        {
+            provide:HTTP_INTERCEPTORS,
+            useClass:Interceptor2Service,
+            multi:true
+        }
+    ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
